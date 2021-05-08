@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/clientes', 'HomeController@clientes');
+Route::get('/servicios', 'HomeController@servicios');
+Route::get('/grupos', 'HomeController@grupos');
+Route::get('/veredas', 'HomeController@veredas');
+Route::get('/factura', 'HomeController@factura');
+Route::get('/factura_manual', 'HomeController@factura_manual');

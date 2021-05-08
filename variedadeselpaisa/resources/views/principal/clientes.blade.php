@@ -1,4 +1,5 @@
-@extends('layouts.clientes')
+@extends('layouts.app')
+@section('pestana','Clientes')
 @section('content')
 <div class="row">
     <div class="col-sm-12">
