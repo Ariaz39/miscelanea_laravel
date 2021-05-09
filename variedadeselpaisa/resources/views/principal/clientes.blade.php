@@ -116,36 +116,19 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach(usuarios as $key)
                         <tr class="gradeX">
-                            <td>Juan Carlos Martinez</td>
-                            <td>Internet 4 Megas</td>
-                            <td>05/03/2021</td>
+                            <td>{{$key->nombre}}</td>
+                            <td>{{$key->telefono}}</td>
+                            <td>{{$key->nombre}}</td>
                             <td class="actions">
                                 <a href="facturacion.php"><i class="fa fa-eye"></i></a>
                                 <a href="clientes.php"><i class="fa fa-pencil"></i></a>
                                 <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
-                        <tr class="gradeC">
-                            <td>Andrea Martinez</td>
-                            <td>Internet 2 Megas</td>
-                            <td>07/04/2021</td>
-                            <td class="actions">
-                                <a href="facturacion.php"><i class="fa fa-eye"></i></a>
-                                <a href="clientes.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="gradeA">
-                            <td>Gloria Martinez</td>
-                            <td>Internet 6 Megas</td>
-                            <td>15/02/2021</td>
-                            <td class="actions">
-                                <a href="facturacion.php"><i class="fa fa-eye"></i></a>
-                                <a href="clientes.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
+                        @endforeach
+
 
 
                         </tbody>

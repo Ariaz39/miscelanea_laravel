@@ -25,10 +25,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function clientes()
-    {
-        return view('principal.clientes');
-    }
+
     public function servicios()
     {
         return view('principal.servicios');
