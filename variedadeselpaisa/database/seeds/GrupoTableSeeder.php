@@ -14,7 +14,8 @@ class GrupoTableSeeder extends Seeder
     public function run()
     {
         DB::table('grupos')->insert([
-            ['nombre'=>'Estudiantes','ciudad'=>'Ibagué']
+            ['nombre'=>'Estudiantes','ciudad'=>'Ibagué'],
+            ['nombre'=>'Campesinos','ciudad'=>'Manizales']
         ]);
     }
 }

@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre',100)->charset('utf8');
             $table->bigInteger('celular');
             $table->bigInteger('grupos_id')->unsigned();
-            $table->text('direccion')->charset('utf8');
+            $table->bigInteger('veredas_id')->unsigned();
             $table->bigInteger('servicios_id')->unsigned();
             $table->bigInteger('tpago_id')->unsigned();
             $table->bigInteger('ip');
@@ -26,6 +26,7 @@ class CreateUsuariosTable extends Migration
             $table->timestamps();
 
             $table->foreign('grupos_id')->references('id')->on('grupos');
+            $table->foreign('veredas_id')->references('id')->on('veredas');
             $table->foreign('servicios_id')->references('id')->on('servicios');
             $table->foreign('tpago_id')->references('id')->on('tpago');
         });

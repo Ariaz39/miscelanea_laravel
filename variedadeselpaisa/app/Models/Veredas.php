@@ -7,17 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer $id
  * @property string $nombre
- * @property string $ciudad
  * @property string $created_at
  * @property string $updated_at
  * @property Usuario[] $usuarios
  */
-class Grupos extends Model
+class Veredas extends Model
 {
-    protected $table = 'grupos';
     /**
      * The "type" of the auto-incrementing ID.
-     *
+     * 
      * @var string
      */
     protected $keyType = 'integer';
@@ -25,13 +23,13 @@ class Grupos extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'ciudad', 'created_at', 'updated_at'];
+    protected $fillable = ['nombre', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function usuarios()
     {
-        return $this->hasMany('App\Models\Usuario', 'grupos_id');
+        return $this->hasMany('App\Models\Usuario', 'veredas_id');
     }
 }

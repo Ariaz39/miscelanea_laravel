@@ -14,7 +14,9 @@ class ServicioTableSeeder extends Seeder
     public function run()
     {
         DB::table('servicios')->insert([
-            ['nombre'=>'Estudiantes','valor'=>'123456']
+            ['nombre'=>'Internet 2Mbs','valor'=>'15000'],
+            ['nombre'=>'Internet 2Mbs','valor'=>'25000'],
+            ['nombre'=>'Internet 5Mbs','valor'=>'50000']
         ]);
     }
 }

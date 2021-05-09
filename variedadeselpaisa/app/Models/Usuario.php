@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property integer $grupos_id
  * @property integer $servicios_id
+ * @property integer $tpago_id
  * @property string $nombre
  * @property int $celular
- * @property string $direccion
+ * @property string $veredas_id
  * @property int $ip
  * @property string $f_inicio
  * @property string $created_at
@@ -31,21 +32,31 @@ class Usuario extends Model
     /**
      * @var array
      */
-    protected $fillable = ['grupos_id', 'servicios_id', 'nombre', 'celular', 'direccion', 'ip', 'f_inicio', 'created_at', 'updated_at'];
+    protected $fillable = ['grupos_id', 'servicios_id', 'tpago_id', 'nombre', 'celular', 'veredas_id', 'ip', 'f_inicio', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function grupo()
+    public function grupos()
     {
-        return $this->belongsTo('App\Models\Grupo', 'grupos_id');
+        return $this->belongsTo('App\Models\Grupos', 'grupos_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function servicio()
+    public function servicios()
     {
-        return $this->belongsTo('App\Models\Servicio', 'servicios_id');
+        return $this->belongsTo('App\Models\Servicios', 'servicios_id');
+    }
+
+    public function tpago()
+    {
+        return $this->belongsTo('App\Models\Tpago', 'tpago_id');
+    }
+
+    public function veredas()
+    {
+        return $this->belongsTo('App\Models\Veredas', 'veredas_id');
     }
 }
