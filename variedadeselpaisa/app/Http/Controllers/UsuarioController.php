@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use App\Usuario AS U;
-use App\Models\Estado AS E;
+use App\Models\Usuario AS U;
+use App\Models\Grupos AS G;
+use App\Models\Servicios AS S;
+use App\Models\Tpago AS T;
 use Illuminate\Support\Facades\Log;
 
 class UsuarioController extends Controller
@@ -17,8 +19,11 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $u = U::paginate(3);
-        return view('principal.inicio',['usuarios'=>$u]);
+        $u = U::paginate(20);
+        $g = G::all();
+        $s = S::all();
+        $t = T::all();
+        return view('principal.clientes',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,]);
     }
 
     /**
@@ -39,7 +44,22 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fecha = date('Y-m-d', strtotime($_REQUEST['f_inicio']));
+
+        $u = new U;
+        $u->nombre = $request->nombre;
+        $u->celular = $request->celular;
+        $u->grupos_id = $request->grupos_id;
+        $u->direccion = $request->direccion;
+        $u->servicios_id = $request->servicios_id;
+        $u->tpago_id = $request->tpago_id;
+        $u->ip = $request->ip;
+        $u->f_inicio = $fecha;
+
+
+        $u->save();
+        dd($u->f_inicio);
+        return redirect()->route('clientes.index');
     }
 
     /**

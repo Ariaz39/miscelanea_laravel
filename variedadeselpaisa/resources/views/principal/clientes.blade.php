@@ -8,41 +8,41 @@
             <h4 class="header-title m-t-0 m-b-30">Crear Cliente</h4>
 
             <div class="row">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" method="post" action="{{Route('clientes.store')}}">
+                    @csrf
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="col-md-2 control-label">Nombre</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-client" name="name-client" class="form-control" placeholder="Escribir Nombre y Apellido">
+                                <input type="text" id="name-client" name="nombre" class="form-control" placeholder="Escribir Nombre y Apellido">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Grupo</label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>Seleccionar Grupo</option>
-                                    <option>Grupo 1</option>
-                                    <option>Grupo 2</option>
+                                <select name="grupos_id" class="form-control">
+                                    <option value="">Seleccione</option>
+                                    @foreach($grupos as $key)
+                                        <option value="{{$key->id}}">{{$key->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Servicio</label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>Seleccionar Servicio</option>
-                                    <option>Internet 2 Megas</option>
-                                    <option>Internet 3 Megas</option>
-                                    <option>Internet 4 Megas</option>
-                                    <option>Internet 5 Megas</option>
-                                    <option>Internet 6 Megas</option>
+                                <select name="servicios_id" class="form-control">
+                                    <option value=""></option>
+                                    @foreach($servicios as $key)
+                                        <option value="{{$key->id}}">{{$key->nombre}} - {{$key->valor}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">IP Asignada</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-ip" name="name-ip" class="form-control" placeholder="*******">
+                                <input type="text" id="ip" name="ip" class="form-control" placeholder="*******">
                             </div>
                         </div>
                     </div>
@@ -50,28 +50,28 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Celular</label>
                             <div class="col-md-10">
-                                <input type="number" id="date-phone" name="date-phone" class="form-control" placeholder="Numero sin espacios">
+                                <input type="number" id="date-phone" name="celular" class="form-control" placeholder="Numero sin espacios">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="example-email">Dirección</label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>Seleccionar Vereda</option>
-                                    <option>San Bernardo</option>
-                                    <option>San Juan</option>
-                                    <option>La Flor</option>
-                                    <option>China Alta</option>
+                                <select name="direccion" class="form-control">
+                                    <option value=""></option>
+                                    @foreach($tpago as $key)
+                                        <option value="{{$key->id}}">{{$key->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Tipo Pago</label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>Seleccionar Tipo</option>
-                                    <option>Adelantado</option>
-                                    <option>Vencido</option>
+                                 <select name="tpago_id" class="form-control">
+                                    <option value=""></option>
+                                    @foreach($tpago as $key)
+                                        <option value="{{$key->id}}">{{$key->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                             <label class="col-sm-2 control-label">Inicio Servicio</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="datepicker-autoclose">
+                                    <input type="text" name="f_inicio" class="form-control" placeholder="{{date('d-m-Y')}}" id="datepicker-autoclose">
                                     <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                 </div>
                             </div>
@@ -110,17 +110,27 @@
                         <thead>
                         <tr>
                             <th>Nombre Apellido</th>
+                            <th>Celular</th>
+                            <th>Grupo</th>
+                            <th>Dirección</th>
                             <th>Servicio</th>
+                            <th>Tipo de pago</th>
+                            <th>Ip Asignada</th>
                             <th>Inicio de Servicio</th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach(usuarios as $key)
+                        @foreach($usuarios as $key)
                         <tr class="gradeX">
                             <td>{{$key->nombre}}</td>
-                            <td>{{$key->telefono}}</td>
-                            <td>{{$key->nombre}}</td>
+                            <td>{{$key->celular}}</td>
+                            <td>{{$key->grupos_id}}</td>
+                            <td>{{$key->direccion}}</td>
+                            <td>{{$key->servicios_id}}</td>
+                            <td>{{$key->tpago_id}}</td>
+                            <td>{{$key->ip}}</td>
+                            <td>{{$key->f_inicio}}</td>
                             <td class="actions">
                                 <a href="facturacion.php"><i class="fa fa-eye"></i></a>
                                 <a href="clientes.php"><i class="fa fa-pencil"></i></a>
@@ -133,6 +143,7 @@
 
                         </tbody>
                     </table>
+                    {{$usuarios->links()}}
                 </div>
 
             </div>
