@@ -14,14 +14,6 @@ use Carbon\Carbon;
 
 class UsuarioController extends Controller
 {
-    public function __construct(){
-
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $u = U::paginate(10);
@@ -32,22 +24,6 @@ class UsuarioController extends Controller
         return view('principal.clientes',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,'veredas'=>$v,]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //$fecha = date('Y-m-d', strtotime($_REQUEST['f_inicio']));
@@ -69,12 +45,6 @@ class UsuarioController extends Controller
         return redirect()->route('clientes.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $u = U::FindOrFail($id);
@@ -85,12 +55,6 @@ class UsuarioController extends Controller
         return view('principal.facturacion',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,'veredas'=>$v,]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $u = U::Find($id);
@@ -101,13 +65,6 @@ class UsuarioController extends Controller
         return view('principal.editar_cliente',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,'veredas'=>$v,]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $u = U::FindOrFail($id);
@@ -125,12 +82,6 @@ class UsuarioController extends Controller
         return redirect()->route('clientes.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $u = U::FindOrFail($id);
