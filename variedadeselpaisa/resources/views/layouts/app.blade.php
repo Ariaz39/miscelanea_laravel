@@ -57,7 +57,7 @@
             <div class="topbar">
 
                 <div class="topbar-left">
-                    <a href="clientes.php" class="logo"><span>Variedades <span>El Paisa</span></span><i class="zmdi zmdi-layers"></i></a>
+                    <a href="clientes" class="logo"><span>Variedades <span>El Paisa</span></span><i class="zmdi zmdi-layers"></i></a>
                 </div>
                 <div class="navbar navbar-default" role="navigation">
                     <div class="container">
@@ -93,27 +93,27 @@
                             <li class="text-muted menu-title">Navegación</li>
 
                             <li>
-                                <a href="clientes.php" class="waves-effect"><i class="zmdi zmdi-account-add"></i> <span> Clientes </span> </a>
+                                <a href="clientes" class="waves-effect"><i class="zmdi zmdi-account-add"></i> <span> Clientes </span> </a>
                             </li>
 
                             <li>
-                                <a href="servicios.php" class="waves-effect"><i class="zmdi zmdi-share"></i> <span> Servicios </span> </a>
+                                <a href="servicios" class="waves-effect"><i class="zmdi zmdi-share"></i> <span> Servicios </span> </a>
                             </li>
 
                             <li>
-                                <a href="factura-manual.php" class="waves-effect"><i class="zmdi zmdi-dot-circle"></i> <span> Factura Manual </span> </a>
+                                <a href="factura_manual" class="waves-effect"><i class="zmdi zmdi-dot-circle"></i> <span> Factura Manual </span> </a>
                             </li>
 
                             <li>
-                                <a href="grupos.php" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> Grupos </span> </a>
+                                <a href="grupos" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> Grupos </span> </a>
                             </li>
 
                             <li>
-                                <a href="veredas.php" class="waves-effect"><i class="zmdi zmdi-city"></i> <span> Veredas </span> </a>
+                                <a href="veredas" class="waves-effect"><i class="zmdi zmdi-city"></i> <span> Veredas </span> </a>
                             </li>
 
                             <li>
-                                <a href="login.php" onclick="" class="waves-effect"><i class="zmdi zmdi-power"></i> <span> Cerrar Sesion </span> </a>
+                                <a href="{{ url('/logout') }}" onclick="" class="waves-effect"><i class="zmdi zmdi-power"></i> <span> Cerrar Sesion </span> </a>
                             </li>
 
                         </ul>

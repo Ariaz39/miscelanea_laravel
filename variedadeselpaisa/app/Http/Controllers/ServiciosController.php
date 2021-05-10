@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Servicios AS S;
 
 class ServiciosController extends Controller
 {
@@ -13,7 +14,8 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        //
+        $s = S::all();
+        return view('principal.servicios',['servicios'=>$s]);
     }
 
     /**
@@ -34,7 +36,13 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $s = new S;
+        $s->nombre = $request->nombre;
+        $s->valor = $request->valor;
+
+        $s-> save();
+
+        return redirect()->route('servicios.index');
     }
 
     /**
@@ -56,7 +64,8 @@ class ServiciosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $s = S::FindOrFail($id);
+        return view('principal.editar_servicios',['servicios'=>$s]);
     }
 
     /**
@@ -68,7 +77,13 @@ class ServiciosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $s = S::FindOrFail($id);
+        $s->nombre = $request->nombre;
+        $s->valor = $request->valor;
+
+        $s->update();
+
+        return redirect()->route('servicios.index');
     }
 
     /**

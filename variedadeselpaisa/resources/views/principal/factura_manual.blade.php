@@ -8,8 +8,8 @@
             <h4 class="header-title m-t-0 m-b-30">Crear Factura</h4>
 
             <div class="row">
-                <form class="form-horizontal" role="form">
-                    <div class="col-lg-6">
+                <form class="form-horizontal col-md-12" role="form">
+                    <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label class="col-md-2 control-label">Cliente</label>
                             <div class="col-md-10">
@@ -23,7 +23,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Servicio</label>
                             <div class="col-md-10">
@@ -41,25 +41,24 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12 col-md-12">
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="date-phone">Concepto</label>
-                            <div class="col-md-10">
+                            <label class="col-md-1 control-label" for="date-phone">Concepto</label>
+                            <div class="col-md-11">
                                 <textarea class="form-control" rows="1" spellcheck="false" data-gramm="false"></textarea>
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
 
 
             <div class="col-lg-12 text-center m-t-20">
                 <button  type="submit" onclick="alert('¡Se ha creado la Factura correctamente...!')" class="btn btn-default waves-effect w-md m-b-5">FACTURAR</button>
             </div>
-            </form>
 
         </div>
     </div>
-</div>
 </div>
 
 <div class="row">
@@ -80,38 +79,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="gradeX">
-                            <td>Juan Carlos Martinez</td>
-                            <td>Internet 4 Megas</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="facturacion.php"><i class="fa fa-eye"></i></a>
-                                <a href="clientes.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="gradeC">
-                            <td>Andrea Martinez</td>
-                            <td>Internet 2 Megas</td>
-                            <td>07/04/2021</td>
-                            <td class="actions">
-                                <a href="facturacion.php"><i class="fa fa-eye"></i></a>
-                                <a href="clientes.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="gradeA">
-                            <td>Gloria Martinez</td>
-                            <td>Internet 6 Megas</td>
-                            <td>15/02/2021</td>
-                            <td class="actions">
-                                <a href="facturacion.php"><i class="fa fa-eye"></i></a>
-                                <a href="clientes.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-
-
+                            <tr class="gradeX">
+                                <td>Juan Carlos Martinez</td>
+                                <td>Internet 4 Megas</td>
+                                <td>05/03/2021</td>
+                                <td class="actions">
+                                    <a href="#"><i class="fa fa-eye"></i></a>
+                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

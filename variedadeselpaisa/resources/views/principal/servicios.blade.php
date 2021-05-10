@@ -9,29 +9,30 @@
             <h4 class="header-title m-t-0 m-b-30">Crear Servicio</h4>
 
             <div class="row">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal col-md-12" role="form" method="post" action="{{Route('servicios.store')}}">
+                    @csrf
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="col-md-2 control-label">Nombre</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-service" name="name-service" class="form-control" placeholder="Escribir Nombre de Servicio">
+                                <input type="text" id="name-service" name="nombre" class="form-control" placeholder="Escribir Nombre de Servicio">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-sm-2 control-label">Fecha Creación</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" id="datepicker-autoclose">
+                                    <input type="text" class="form-control" name="f_inicio" placeholder="{{date('Y/m/d')}}" id="datepicker-autoclose" autocomplete="off">
                                     <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-value">Valor</label>
                             <div class="col-md-10">
-                                <input type="number" id="date-value" name="date-value" class="form-control" placeholder="Solo Valor Ej. 50000">
+                                <input type="number" id="date-value" name="valor" class="form-control" placeholder="Solo Valor Ej. 50000">
                             </div>
                         </div>
                     </div>
@@ -65,51 +66,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Internet 2 Megas</td>
-                            <td>$ 40.000</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="servicios.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Internet 2 Megas</td>
-                            <td>$ 40.000</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="servicios.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Internet 2 Megas</td>
-                            <td>$ 40.000</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="servicios.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Internet 2 Megas</td>
-                            <td>$ 40.000</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="servicios.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Internet 2 Megas</td>
-                            <td>$ 40.000</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="servicios.php"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
+                        @foreach($servicios as $key)
+                            <tr>
+                                <td>{{$key->nombre}}</td>
+                                <td>{{$key->valor}}</td>
+                                <td>{{$key->created_at}}</td>
+                                <td class="actions">
+                                    <a href="{{Route('servicios.edit',$key->id)}}"><i class="fa fa-pencil"></i></a>
+
+                                </td>
+                            </tr>
+                        @endforeach
+
 
                         </tbody>
                     </table>

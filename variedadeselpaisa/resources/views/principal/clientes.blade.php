@@ -80,7 +80,7 @@
                             <label class="col-sm-2 control-label">Inicio Servicio</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" name="f_inicio" class="form-control" placeholder="{{date('Y-m-d')}}" autocomplete="off" id="datepicker-autoclose">
+                                    <input type="text" name="f_inicio" class="form-control" placeholder="{{date('Y/m/d')}}" autocomplete="off" id="datepicker-autoclose">
                                     <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                 </div>
                             </div>
@@ -132,8 +132,8 @@
                             <td>{{$key->ip}}</td>
                             <td>{{$key->f_inicio}}</td>
                             <td class="actions">
-                                <a href="{{route('clientes.show',$key->id)}}"><i class="fa fa-eye"></i></a>
-                                <a href="{{route('clientes.edit',$key->id)}}"><i class="fa fa-pencil"></i></a>
+                                <a href="{{Route('clientes.show',$key->id)}}"><i class="fa fa-eye"></i></a>
+                                <a href="{{Route('clientes.edit',$key->id)}}"><i class="fa fa-pencil"></i></a>
                                 <form class="d-inline pointer" action="{{Route('clientes.destroy',$key->id)}}" method="POST" accept-charset="utf-8">
                                     @csrf
                                     @method('DELETE')
