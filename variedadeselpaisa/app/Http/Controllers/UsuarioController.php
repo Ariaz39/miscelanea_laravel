@@ -77,7 +77,12 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $u = U::FindOrFail($id);
+        $g = G::all();
+        $s = S::all();
+        $t = T::all();
+        $v = V::all();
+        return view('principal.facturacion',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,'veredas'=>$v,]);
     }
 
     /**
@@ -128,6 +133,9 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $u = U::FindOrFail($id);
+        $u->delete();
+
+        return redirect()->route('clientes.index');
     }
 }

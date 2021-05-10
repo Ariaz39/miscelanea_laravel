@@ -21,7 +21,7 @@
                             <label class="col-md-2 control-label">Grupo</label>
                             <div class="col-md-10">
                                 <select name="grupos_id" class="form-control">
-                                    <option value="">Seleccione</option>
+                                    <option value=""></option>
                                     @foreach($grupos as $key)
                                         <option value="{{$key->id}}">{{$key->nombre}}</option>
                                     @endforeach
@@ -132,9 +132,13 @@
                             <td>{{$key->ip}}</td>
                             <td>{{$key->f_inicio}}</td>
                             <td class="actions">
-                                <a href="facturacion.php"><i class="fa fa-eye"></i></a>
+                                <a href="{{route('clientes.show',$key->id)}}"><i class="fa fa-eye"></i></a>
                                 <a href="{{route('clientes.edit',$key->id)}}"><i class="fa fa-pencil"></i></a>
-                                <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                <form class="d-inline pointer" action="{{Route('clientes.destroy',$key->id)}}" method="POST" accept-charset="utf-8">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button style="background: none" type="submit" onclick="return confirm('¿Seguro deseas borrar este registro?');"><i class="fa fa-trash-o"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
