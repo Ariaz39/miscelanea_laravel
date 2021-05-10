@@ -24,7 +24,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $u = U::paginate(20);
+        $u = U::paginate(10);
         $g = G::all();
         $s = S::all();
         $t = T::all();

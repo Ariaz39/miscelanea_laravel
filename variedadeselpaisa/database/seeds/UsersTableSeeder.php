@@ -13,7 +13,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            ['name'=>'Admin','email'=>'ariaz39@hotmail.com','password'=>'$2y$10$IcbuOFrk9DDvoxj0NeER2.LJSbVjpqspRtHOVi9hTxcuHDpLxwjH6']
+            ['name'=>'Alejo Ariaz',
+                'email'=>'ariaz39@hotmail.com',
+                'password'=>'$2y$10$IcbuOFrk9DDvoxj0NeER2.LJSbVjpqspRtHOVi9hTxcuHDpLxwjH6']
         ]);
     }
 }

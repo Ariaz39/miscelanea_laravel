@@ -17,7 +17,12 @@ class VeredasTableSeeder extends Seeder
             ['nombre'=>'Pastales'],
             ['nombre'=>'San Bernardo'],
             ['nombre'=>'Villarica'],
-            ['nombre'=>'San Bernardo'],
+            ['nombre'=>'Villa Hermosa'],
+            ['nombre'=>'Santa Isabel'],
+            ['nombre'=>'Líbano'],
+            ['nombre'=>'Murillo'],
+            ['nombre'=>'Anzoátegui'],
+            ['nombre'=>'Flandes'],
         ]);
     }
 }

@@ -12,8 +12,16 @@ class UsuarioTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('usuario')->insert([
-            ['nombre'=>'Admin','celular'=>'3104561230','grupos_id'=>'1','veredas_id'=>'1','servicios_id'=>'1','tpago_id'=>'1','ip'=>'123456123','f_inicio'=>'2012-12-04']
-        ]);
+        factory(App\Models\Usuario::class, 10)->create();
+        //DB::table('usuario')->insert([
+        //    ['nombre'=>'Admin',
+        //      'celular'=>'3104561230',
+        //      'grupos_id'=>'1',
+        //      'veredas_id'=>'1',
+        //      'servicios_id'=>'1',
+        //      'tpago_id'=>'1',
+        //      'ip'=>'123456123',
+        //      'f_inicio'=>'2012-12-04']
+        //]);
     }
 }
