@@ -9,6 +9,7 @@ use App\Models\Grupos AS G;
 use App\Models\Servicios AS S;
 use App\Models\Tpago AS T;
 use App\Models\Veredas AS V;
+use Barryvdh\DomPDF\Facade AS PDF;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
@@ -89,5 +90,14 @@ class UsuarioController extends Controller
         $u->delete();
 
         return redirect()->route('clientes.index');
+    }
+
+    public function exportPdf()
+    {
+        $u = U::orderBy('nombre')->get();
+        $pdf = PDF::loadView('pdf.usuarios',['usuarios'=>$u])->setPaper('a4', 'landscape');
+
+        //return $pdf->render('listado_usuarios.pdf');
+        return $pdf->stream('listado_usuarios.pdf');
     }
 }

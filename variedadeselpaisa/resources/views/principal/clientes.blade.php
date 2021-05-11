@@ -108,7 +108,7 @@
                 <div class="">
                     <table class="table table-striped" id="datatable-editable">
                         <thead>
-                        <tr>
+                            <tr>
                             <th>Nombre Apellido</th>
                             <th>Celular</th>
                             <th>Grupo</th>
@@ -146,7 +146,7 @@
 
                         </tbody>
                     </table>
-                    {{$usuarios->links()}}
+                    {{$usuarios->links()}} <a href="{{Route('usuarios.pdf')}}"><h1 class="bg-primary">Exportar Usuarios</h1></a>
                 </div>
 
             </div>

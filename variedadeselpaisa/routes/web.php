@@ -18,12 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::resource('clientes','UsuarioController');
-Route::resource('servicios','ServiciosController');
-Route::resource('grupos', 'GruposController');
-Route::resource('veredas', 'VeredasController');
+Route::resource('/clientes','UsuarioController');
+Route::resource('/servicios','ServiciosController');
+Route::resource('/grupos', 'GruposController');
+Route::resource('/veredas', 'VeredasController');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
-Route::get('/factura', 'HomeController@factura');
+Route::get('/users-pdf', 'UsuarioController@exportPdf')->name('usuarios.pdf');
 Route::get('/factura_manual', 'HomeController@factura_manual');

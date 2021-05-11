@@ -29,7 +29,7 @@
             <div class="card-box" id="cont-factura">
                 <div id="secc-cabecera">
                     <div class="div-divi" style="width: 70%;">
-                        <img src="{{asset('images/logo.jpg')}}" alt="Creasotol">
+                        <img src="{{asset('images/logo.jpg')}}" alt="Variedades el Paisa">
                     </div>
 
                     <div class="div-divi" style="width: 30%;">
