@@ -21,7 +21,9 @@ Auth::routes();
 Route::resource('clientes','UsuarioController');
 Route::resource('servicios','ServiciosController');
 Route::resource('grupos', 'GruposController');
-Route::get('/veredas', 'HomeController@veredas');
+Route::resource('veredas', 'VeredasController');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
 Route::get('/factura', 'HomeController@factura');
 Route::get('/factura_manual', 'HomeController@factura_manual');
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

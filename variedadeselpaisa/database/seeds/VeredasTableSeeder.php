@@ -13,16 +13,16 @@ class VeredasTableSeeder extends Seeder
     public function run()
     {
         DB::table('veredas')->insert([
-            ['nombre'=>'San Antonio'],
-            ['nombre'=>'Pastales'],
-            ['nombre'=>'San Bernardo'],
-            ['nombre'=>'Villarica'],
-            ['nombre'=>'Villa Hermosa'],
-            ['nombre'=>'Santa Isabel'],
-            ['nombre'=>'Líbano'],
-            ['nombre'=>'Murillo'],
-            ['nombre'=>'Anzoátegui'],
-            ['nombre'=>'Flandes'],
+            ['nombre'=>'San Antonio','ciudad'=>'Ibagué'],
+            ['nombre'=>'Pastales','ciudad'=>'Ibagué'],
+            ['nombre'=>'San Bernardo','ciudad'=>'Ibagué'],
+            ['nombre'=>'Villarica','ciudad'=>'Ibagué'],
+            ['nombre'=>'Villa Hermosa','ciudad'=>'Ibagué'],
+            ['nombre'=>'Santa Isabel','ciudad'=>'Ibagué'],
+            ['nombre'=>'Líbano','ciudad'=>'Ibagué'],
+            ['nombre'=>'Murillo','ciudad'=>'Ibagué'],
+            ['nombre'=>'Anzoátegui','ciudad'=>'Ibagué'],
+            ['nombre'=>'Flandes','ciudad'=>'Ibagué'],
         ]);
     }
 }

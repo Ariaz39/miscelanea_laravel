@@ -16,7 +16,8 @@ class UsuarioController extends Controller
 {
     public function index()
     {
-        $u = U::paginate(10);
+        $u = U::orderBy('nombre')->paginate(5);
+
         $g = G::all();
         $s = S::all();
         $t = T::all();

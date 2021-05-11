@@ -16,6 +16,7 @@ class CreateVeredasTable extends Migration
         Schema::create('veredas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre',100);
+            $table->string('ciudad',100);
             $table->timestamps();
         });
     }

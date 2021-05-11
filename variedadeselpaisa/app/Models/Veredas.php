@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer $id
  * @property string $nombre
+ * @property string $ciudad
  * @property string $created_at
  * @property string $updated_at
  * @property Usuario[] $usuarios
@@ -15,7 +16,7 @@ class Veredas extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -23,7 +24,7 @@ class Veredas extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'created_at', 'updated_at'];
+    protected $fillable = ['nombre', 'ciudad', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

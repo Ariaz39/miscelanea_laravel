@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Servicios AS S;
+use Illuminate\Support\Facades\DB;
 
 class ServiciosController extends Controller
 {
     public function index()
     {
         $s = S::all();
+        $s = S::orderBy('nombre')->paginate(10);
         return view('principal.servicios',['servicios'=>$s]);
     }
 
