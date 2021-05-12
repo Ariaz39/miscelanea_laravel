@@ -5,16 +5,6 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Variedades el Paisa - @yield('pestana')</title>
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/estilo.css" media="screen" >
-        <link rel="stylesheet" href="{{asset('css/print.css')}}"  media="print">
-        <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">
@@ -50,6 +40,8 @@
         <!-- Editatable  Css-->
         <link rel="stylesheet" href="{{asset('plugins/magnific-popup/dist/magnific-popup.css')}}" />
         <link rel="stylesheet" href="{{asset('plugins/jquery-datatables-editable/datatables.css')}}" />
+
+
     </head>
     <body class="fixed-left">
         <div id="wrapper">
@@ -167,7 +159,7 @@
             </div>
         </div>
 
-    <script>
+        <script>
         var resizefunc = [];
         </script>
         <!-- jQuery  -->
@@ -330,7 +322,7 @@
         // Date Picker
         jQuery('#datepicker').datepicker();
         jQuery('#datepicker-autoclose').datepicker({
-        format: "yyyy/mm/dd",
+        format: "dd/mm/yyyy",
         autoclose: true,
         todayHighlight: true
         });
@@ -481,7 +473,7 @@
             $('#datatable').dataTable();
             $('#datatable-keytable').DataTable( { keys: true } );
             $('#datatable-responsive').DataTable();
-            $('#datatable-scroller').DataTable( { ajax: "plugins/datatables/json/scroller-demo.json", deferRender: true, scrollY: 380, scrollCollapse: true, scroller: true } );
+            $('#datatable-scroller').DataTable( { ajax: "{{asset('plugins/datatables/json/scroller-demo.json')}}", deferRender: true, scrollY: 380, scrollCollapse: true, scroller: true } );
             var table = $('#datatable-fixed-header').DataTable( { fixedHeader: true } );
         } );
         TableManageButtons.init();

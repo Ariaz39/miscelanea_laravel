@@ -11,7 +11,7 @@ class ServiciosController extends Controller
     public function index()
     {
         $s = S::all();
-        $s = S::orderBy('nombre')->paginate(10);
+        $s = S::orderBy('nombre')->get();
         return view('principal.servicios',['servicios'=>$s]);
     }
 

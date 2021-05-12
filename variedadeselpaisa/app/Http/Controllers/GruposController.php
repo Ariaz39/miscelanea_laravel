@@ -10,7 +10,7 @@ class GruposController extends Controller
 
     public function index()
     {
-        $g = G::orderBy('nombre')->paginate(10);
+        $g = G::orderBy('nombre')->get();
         return view('principal.grupos',['grupos'=>$g]);
     }
 

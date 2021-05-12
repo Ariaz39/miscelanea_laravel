@@ -9,7 +9,7 @@ class VeredasController extends Controller
 {
     public function index()
     {
-        $v = V::orderBy('nombre')->paginate(5);
+        $v = V::orderBy('nombre')->get();
 
         return view('principal.veredas',['veredas'=>$v]);
     }

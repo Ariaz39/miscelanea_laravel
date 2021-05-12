@@ -106,7 +106,7 @@
 
 
                 <div class="">
-                    <table class="table table-striped" id="datatable-editable">
+                    <table class="table table-striped" id="datatable-responsive">
                         <thead>
                             <tr>
                             <th>Nombre Apellido</th>
@@ -146,7 +146,7 @@
 
                         </tbody>
                     </table>
-                    {{$usuarios->links()}} <a href="{{Route('usuarios.pdf')}}"><h1 class="bg-primary">Exportar Usuarios</h1></a>
+                    <a href="{{Route('usuarios.pdf')}}"><h1 class="bg-primary">Exportar Usuarios</h1></a>
                 </div>
 
             </div>

@@ -79,7 +79,7 @@
 
                         </tbody>
                     </table>
-                    {{$grupos->links()}}
+
                 </div>
 
             </div>

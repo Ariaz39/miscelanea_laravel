@@ -81,7 +81,7 @@
 
                         </tbody>
                     </table>
-                    {{$servicios->links()}}
+
                 </div>
 
             </div>
