@@ -23,6 +23,8 @@ class VeredasTableSeeder extends Seeder
             ['nombre'=>'Murillo','ciudad'=>'Ibagué'],
             ['nombre'=>'Anzoátegui','ciudad'=>'Ibagué'],
             ['nombre'=>'Flandes','ciudad'=>'Ibagué'],
+            ['nombre'=>'Flandes','ciudad'=>'Ibagué'],
+            ['nombre'=>'Flandes','ciudad'=>'Ibagué'],
         ]);
     }
 }

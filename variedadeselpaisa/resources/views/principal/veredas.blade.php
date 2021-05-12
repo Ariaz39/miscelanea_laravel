@@ -78,7 +78,7 @@
                                 @endforeach
                         </tbody>
                     </table>
-                    {{$veredas->links()}}
+
                 </div>
 
             </div>
