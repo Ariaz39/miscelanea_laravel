@@ -322,7 +322,7 @@
         // Date Picker
         jQuery('#datepicker').datepicker();
         jQuery('#datepicker-autoclose').datepicker({
-        format: "yyyy/mm/dd",
+        format: "dd/mm/yyyy",
         autoclose: true,
         todayHighlight: true
         });
