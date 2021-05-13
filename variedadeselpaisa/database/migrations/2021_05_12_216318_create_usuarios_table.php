@@ -18,6 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre',100)->charset('utf8');
             $table->bigInteger('celular');
             $table->bigInteger('grupos_id')->unsigned();
+            $table->bigInteger('factura_id')->unsigned();
             $table->bigInteger('veredas_id')->unsigned();
             $table->bigInteger('servicios_id')->unsigned();
             $table->bigInteger('tpago_id')->unsigned();
