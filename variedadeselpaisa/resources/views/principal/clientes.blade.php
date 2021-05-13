@@ -146,7 +146,7 @@
 
                         </tbody>
                     </table>
-                    <a href="{{Route('usuarios.pdf')}}"><h1 class="bg-primary">Exportar Usuarios</h1></a>
+                    <a class="btn btn-info" href="{{Route('usuarios.pdf')}}"><b>Exportar Usuarios</b></a>
                 </div>
 
             </div>

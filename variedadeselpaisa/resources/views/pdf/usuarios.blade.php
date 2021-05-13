@@ -12,33 +12,34 @@
 <style>
     .border {
         border: 1px solid black;
+        padding: 5px;
     }
 </style>
 <body>
-<table class="">
+<table class="border">
     <thead>
         <tr>
-            <th>Nombre Apellido</th>
-            <th>Celular</th>
-            <th>Grupo</th>
-            <th>Dirección</th>
-            <th>Servicio</th>
-            <th>Tipo de pago</th>
-            <th>Ip Asignada</th>
-            <th>Inicio de Servicio</th>
+            <th class="border">Nombre Apellido</th>
+            <th class="border">Celular</th>
+            <th class="border">Grupo</th>
+            <th class="border">Dirección</th>
+            <th class="border">Servicio</th>
+            <th class="border">Tipo de pago</th>
+            <th class="border">Ip Asignada</th>
+            <th class="border">Inicio de Servicio</th>
         </tr>
         </thead>
         <tbody>
         @foreach($usuarios as $key)
             <tr class="border">
-                <td>{{$key->nombre}}</td>
-                <td>{{$key->celular}}</td>
-                <td>{{$key->grupos->nombre}}</td>
-                <td>{{$key->veredas->nombre}}</td>
-                <td>{{$key->servicios->nombre}}</td>
-                <td>{{$key->tpago->nombre}}</td>
-                <td>{{$key->ip}}</td>
-                <td>{{$key->f_inicio}}</td>
+                <td class="border">{{$key->nombre}}</td>
+                <td class="border">{{$key->celular}}</td>
+                <td class="border">{{$key->grupos->nombre}}</td>
+                <td class="border">{{$key->veredas->nombre}}</td>
+                <td class="border">{{$key->servicios->nombre}}</td>
+                <td class="border">{{$key->tpago->nombre}}</td>
+                <td class="border">{{$key->ip}}</td>
+                <td class="border"">{{$key->f_inicio}}</td>
             </tr>
         @endforeach
 

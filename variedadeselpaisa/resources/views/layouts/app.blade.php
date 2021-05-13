@@ -60,7 +60,7 @@
                                 </button>
                             </li>
                             <li>
-                                <h4 class="page-title">Clientes</h4>
+                                <h4 class="page-title">@yield('pestana')</h4>
                             </li>
                         </ul>
                     </div>
@@ -77,7 +77,7 @@
                             <img src="{{asset('images/users/avatar-1.jpg')}}" class="img-circle img-thumbnail img-responsive">
                             <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
                         </div>
-                        <h5><a>Javier Manco</a> </h5>
+                        <h5><a>Variedades el Paisa</a> </h5>
                     </div>
 
                     <div id="sidebar-menu">
@@ -85,27 +85,27 @@
                             <li class="text-muted menu-title">Navegación</li>
 
                             <li>
-                                <a href="clientes" class="waves-effect"><i class="zmdi zmdi-account-add"></i> <span> Clientes </span> </a>
+                                <a href="{{url('clientes')}}" class="waves-effect"><i class="zmdi zmdi-account-add"></i> <span> Clientes </span> </a>
                             </li>
 
                             <li>
-                                <a href="servicios" class="waves-effect"><i class="zmdi zmdi-share"></i> <span> Servicios </span> </a>
+                                <a href="{{url('/servicios')}}" class="waves-effect"><i class="zmdi zmdi-share"></i> <span> Servicios </span> </a>
                             </li>
 
                             <li>
-                                <a href="factura_manual" class="waves-effect"><i class="zmdi zmdi-dot-circle"></i> <span> Factura Manual </span> </a>
+                                <a href="{{url('/factura_manual')}}" class="waves-effect"><i class="zmdi zmdi-dot-circle"></i> <span> Factura Manual </span> </a>
                             </li>
 
                             <li>
-                                <a href="grupos" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> Grupos </span> </a>
+                                <a href="{{url('/grupos')}}" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> Grupos </span> </a>
                             </li>
 
                             <li>
-                                <a href="veredas" class="waves-effect"><i class="zmdi zmdi-city"></i> <span> Veredas </span> </a>
+                                <a href="{{url('/veredas')}}" class="waves-effect"><i class="zmdi zmdi-city"></i> <span> Veredas </span> </a>
                             </li>
 
                             <li>
-                                <a href="{{ url('/logout') }}" onclick="" class="waves-effect"><i class="zmdi zmdi-power"></i> <span> Cerrar Sesion </span> </a>
+                                <a href="{{ url('/logout') }}" onclick="" class="waves-effect"><i class="zmdi zmdi-power"></i> <span> Cerrar Sesión </span> </a>
                             </li>
 
                         </ul>
@@ -178,7 +178,7 @@
         <script type="text/javascript" src="{{asset('plugins/multiselect/js/jquery.multi-select.js')}}"></script>
         <script type="text/javascript" src="{{asset('plugins/jquery-quicksearch/jquery.quicksearch.js')}}"></script>
         <script src="{{asset('plugins/select2/dist/js/select2.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('plugins/bootstrap-touchspin/dist/wn.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('plugins/bootstrap-inputmask/bootstrap-inputmask.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('plugins/moment/moment.js')}}"></script>
         <script src="{{asset('plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
