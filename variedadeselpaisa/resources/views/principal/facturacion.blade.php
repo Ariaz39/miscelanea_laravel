@@ -49,6 +49,8 @@
 
                     </div>
 
+
+
                     <div class="col-lg-12 text-center m-t-20">
                         <button  type="submit" onclick="alert('¡Se ha creado la Factura correctamente...!')" class="btn btn-default waves-effect w-md m-b-5">FACTURAR</button>
                     </div>
@@ -115,39 +117,28 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Servicio - Valor</th>
-                            <th>Concepto</th>
+                            <th>Servicio</th>
+                            <th>Valor</th>
+                            <th>Fecha de Factura</th>
+                            <th>Factura Mes</th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="gradeX">
-                            <td>01</td>
-                            <td>Venta de Cable - $20.000</td>
-                            <td>Venta de 15 Metros de Cable UPT Coaxial Tipo C, incluye 2 rj45</td>
-                            <td class="actions">
-                                <a href="factura.php" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="gradeC">
-                            <td>02</td>
-                            <td>Venta de Cable - $30.000</td>
-                            <td>Venta de 15 Metros de Cable UPT Coaxial Tipo C, incluye 2 rj45</td>
-                            <td class="actions">
-                                <a href="factura.php" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="gradeA">
-                            <td>03</td>
-                            <td>Venta de Cable - $10.000</td>
-                            <td>Venta de 15 Metros de Cable UPT Coaxial Tipo C, incluye 2 rj45</td>
-                            <td class="actions">
-                                <a href="factura.php" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
-                            </td>
-                        </tr>
+                        @foreach($factura2 as $key)
+                            <tr class="gradeX">
+                                <td>{{$key->id}}</td>
+                                <td>{{$key->usuario->servicios->nombre}}</td>
+                                <td>{{$key->valor}}</td>
+                                <td>{{$key->created_at}}</td>
+                                <td>{{$key->concepto}}</td>
+                                <td class="actions">
+                                    <a href="#" target="_blank"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+
 
 
                         </tbody>

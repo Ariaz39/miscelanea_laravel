@@ -27,4 +27,4 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::get('/users-pdf', 'UsuarioController@exportPdf')->name('usuarios.pdf');
-Route::get('/factura_manual', 'HomeController@factura_manual');
+Route::get('/factura_manual', 'FacturaController@factura_manual');

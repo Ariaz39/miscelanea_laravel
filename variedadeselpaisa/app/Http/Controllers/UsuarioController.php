@@ -50,7 +50,8 @@ class UsuarioController extends Controller
 
     public function show($id)
     {
-        $usuario = U::FindOrFail($id);
+        //$usuario = U::FindOrFail($id);
+        $usuario = $id;
         $factura = F::All();
         return redirect()->route('facturacion.index',
             compact('usuario','factura')

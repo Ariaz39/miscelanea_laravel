@@ -22,6 +22,7 @@ class FacturaController extends Controller
     {
         $usuario = U::FindOrFail($id);
         $factura = F::where(['usuario_id' => $id->usuario,'tfra_id' => 1])->get();
+        $factura2 = F::where(['usuario_id' => $id->usuario,'tfra_id' => 2])->get();
         //dd($usuario);
         //$usuario = DB::table('usuario')
         //    ->join('factura', 'usuario.id', '=', 'factura.usuario_id')
@@ -37,7 +38,7 @@ class FacturaController extends Controller
         //    )->get()->toArray();
         //dd($usuario);
 
-        return view('principal.facturacion', compact('usuario','factura'));
+        return view('principal.facturacion', compact('usuario','factura','factura2'));
     }
 
     /**
@@ -66,9 +67,17 @@ class FacturaController extends Controller
 
         $factura-> save();
 
-        dd($factura);
+        //dd($factura);
 
         return redirect()->route('facturacion.index');
+    }
+
+    public function factura_manual(Request $request)
+    {
+        $usuario = U::All();
+        $servicios = S::All();
+
+        return view('principal.factura_manual',compact('usuario','servicios'));
     }
 
     /**
