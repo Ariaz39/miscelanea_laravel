@@ -22,6 +22,7 @@ Route::resource('/clientes','UsuarioController');
 Route::resource('/servicios','ServiciosController');
 Route::resource('/grupos', 'GruposController');
 Route::resource('/veredas', 'VeredasController');
+Route::resource('/facturacion', 'FacturaController');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 

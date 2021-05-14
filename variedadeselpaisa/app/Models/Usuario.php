@@ -59,4 +59,8 @@ class Usuario extends Model
     {
         return $this->belongsTo('App\Models\Veredas', 'veredas_id');
     }
+    public function factura()
+    {
+        return $this->belongsTo('App\Models\Factura', 'factura_id');
+    }
 }

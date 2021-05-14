@@ -8,6 +8,7 @@ $factory->define(App\Models\Usuario::class, function (Faker $faker) {
         'nombre' => $faker->name,
         'celular' => '31'.mt_rand(1,99999999),
         'grupos_id' => mt_rand(1,2),
+        'factura_id' => mt_rand(1,2),
         'veredas_id' => mt_rand(1,10),
         'servicios_id' => mt_rand(1,5),
         'tpago_id' => mt_rand(1,2),

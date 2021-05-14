@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pestana','Clientes')
+@section('pestana','Facturación')
 @section('content')
 <div class="row">
     <div class="col-sm-12">
@@ -13,13 +13,15 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Cliente</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-client" name="name-client" class="form-control" value="{{$usuarios->nombre}}" disabled>
+                                <input type="text" id="name-client" name="nombre" class="form-control" value="{{$usuario->nombre}}" disabled>
+                                <input type="text" id="name-client" name="usuario_id" class="form-control" value="{{$usuario->id}}" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Valor</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-price" name="date-price" class="form-control" value="{{$usuarios->servicios->valor}}">
+                                <input type="text" id="date-price" name="date-price" class="form-control" value="{{$usuario->servicios->valor}}">
+
                             </div>
                         </div>
 
@@ -28,14 +30,15 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Servicio</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-service" name="date-service" class="form-control" value="{{$usuarios->servicios->nombre}}">
+                                <input type="text" id="date-service" name="date-service" class="form-control" value="{{$usuario->servicios->nombre}}">
+                                <input type="text" id="date-price" name="servicio_id" class="form-control" value="{{$usuario->servicios->id}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Fecha Factura</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" value="<?php echo date('d-m-Y') ?>" id="datepicker-autoclose">
+                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" value="<?php echo date('Y-m-d') ?>" id="datepicker-autoclose" disabled>
                                     <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                 </div>
                             </div>
@@ -66,38 +69,25 @@
                         <tr>
                             <th>ID</th>
                             <th>Servicio</th>
+                            <th>Valor</th>
                             <th>Factura Mes</th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="gradeX">
-                            <td>01</td>
-                            <td>Internet 4 Megas</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="factura.php" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="gradeC">
-                            <td>02</td>
-                            <td>Internet 4 Megas</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="factura.php" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="gradeA">
-                            <td>03</td>
-                            <td>Internet 4 Megas</td>
-                            <td>05/03/2021</td>
-                            <td class="actions">
-                                <a href="factura.php" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
-                            </td>
-                        </tr>
+                        @foreach($factura as $key)
+                            <tr class="gradeX">
+                                <td>{{$key->id}}</td>
+                                <td></td>
+                                <td>{{$key->valor}}</td>
+                                <td>{{$key->created_at}}</td>
+                                <td class="actions">
+                                    <a href="#" target="_blank"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+
 
 
                         </tbody>

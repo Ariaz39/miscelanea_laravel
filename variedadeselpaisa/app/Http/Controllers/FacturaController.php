@@ -1,8 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Usuario AS U;
+use App\Models\Grupos AS G;
+use App\Models\Servicios AS S;
+use App\Models\Tpago AS T;
+use App\Models\Veredas AS V;
+use App\Models\Facturas AS F;
+use Barryvdh\DomPDF\Facade AS PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FacturaController extends Controller
 {
@@ -13,7 +20,10 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        //
+        $usuario = U::FindOrFail(1);
+        $factura = DB::table('factura')->where('usuario_id', 1)->get();
+
+        return view('principal.facturacion', compact('usuario','factura'));
     }
 
     /**
@@ -34,7 +44,14 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $factura = new F;
+        $factura->usuario_id = $request->usuario_id;
+        $factura->tfra_id = $request->tfra_id;
+        $factura->concepto = $request->concepto;
+
+        $factura-> save();
+
+        dd($factura);
     }
 
     /**

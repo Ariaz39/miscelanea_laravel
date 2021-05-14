@@ -30,14 +30,12 @@ class CreateUsuariosTable extends Migration
             $table->foreign('veredas_id')->references('id')->on('veredas');
             $table->foreign('servicios_id')->references('id')->on('servicios');
             $table->foreign('tpago_id')->references('id')->on('tpago');
+
+            //$table->foreign('factura_id')->references('id')->on('factura');
+            //tambien debo llamar la factura aca.
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('usuarios');
