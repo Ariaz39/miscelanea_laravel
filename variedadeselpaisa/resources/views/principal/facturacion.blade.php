@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Cliente</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-client" name="nombre" class="form-control" value="{{$usuario->nombre}}" disabled>
+                                <input type="text" id="name-client" name="nombre" class="form-control" value="{{$usuario->nombre}}" readonly>
                                 <input type="hidden" id="name-client" name="usuarioId" class="form-control" value="{{$usuario->id}}">
                                 <input type="hidden" id="name-client" name="tfra_id" class="form-control" value="1">
                             </div>
@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Servicio</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-service" name="date-service" class="form-control" value="{{$usuario->servicios->nombre}}">
+                                <input type="text" id="date-service" name="date-service" class="form-control" value="{{$usuario->servicios->nombre}}" readonly>
                                 <input type="hidden" id="date-price" name="servicio_id" class="form-control" value="{{$usuario->servicios->id}}">
                             </div>
                         </div>
@@ -46,6 +46,15 @@
                             </div>
                         </div>
 
+                    </div>
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="date-phone">Concepto</label>
+                            <div class="col-md-11">
+                                <textarea class="form-control" rows="1" spellcheck="false" data-gramm="false" name="concepto"></textarea>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-lg-12 text-center m-t-20">

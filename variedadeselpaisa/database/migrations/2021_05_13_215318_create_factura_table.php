@@ -18,7 +18,7 @@ class CreateFacturaTable extends Migration
             $table->integer('usuario_id')->unsigned();
             $table->bigInteger('tfra_id')->unsigned();
             $table->integer('valor');
-            $table->text('concepto');
+            $table->text('concepto')->nullable();
             $table->timestamps();
 
             $table->foreign('usuario_id')->references('id')->on('usuario');

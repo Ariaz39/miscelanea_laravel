@@ -46,10 +46,15 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->concepto == null){
+            $tfra_id = 1;
+        }else{
+            $tfra_id = 2;
+        };
         //dd($request);
         $factura = new F;
         $factura->usuario_id = $request->usuarioId;
-        $factura->tfra_id = $request->tfra_id;
+        $factura->tfra_id = $tfra_id;
         $factura->concepto = $request->concepto;
         $factura->valor = $request->valor;
 
