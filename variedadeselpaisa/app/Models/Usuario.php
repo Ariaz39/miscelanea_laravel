@@ -61,6 +61,6 @@ class Usuario extends Model
     }
     public function factura()
     {
-        return $this->belongsTo('App\Models\Factura', 'factura_id');
+        return $this->belongsTo('App\Models\Facturas', 'factura_id');
     }
 }

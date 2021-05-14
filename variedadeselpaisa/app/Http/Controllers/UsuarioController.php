@@ -9,6 +9,7 @@ use App\Models\Grupos AS G;
 use App\Models\Servicios AS S;
 use App\Models\Tpago AS T;
 use App\Models\Veredas AS V;
+use App\Models\Facturas AS F;
 use Barryvdh\DomPDF\Facade AS PDF;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
@@ -17,13 +18,13 @@ class UsuarioController extends Controller
 {
     public function index()
     {
-        $u = U::orderBy('nombre')->paginate(5);
+        $usuarios = U::orderBy('nombre')->paginate(5);
 
-        $g = G::all();
-        $s = S::all();
-        $t = T::all();
-        $v = V::all();
-        return view('principal.clientes',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,'veredas'=>$v,]);
+        $grupos = G::all();
+        $servicios = S::all();
+        $tpago = T::all();
+        $veredas = V::all();
+        return view('principal.clientes',compact('usuarios','grupos','servicios','tpago','veredas'));
     }
 
     public function store(Request $request)
@@ -49,22 +50,25 @@ class UsuarioController extends Controller
 
     public function show($id)
     {
-        $u = U::FindOrFail($id);
-        $g = G::all();
-        $s = S::all();
-        $t = T::all();
-        $v = V::all();
-        return view('principal.facturacion',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,'veredas'=>$v,]);
+        $usuario = U::FindOrFail($id);
+        $factura = F::All();
+        return redirect()->route('facturacion.index',
+            compact('usuario','factura')
+        );
+        //dd($usuario);
+        //return view('principal.facturacion',
+        //    compact('factura','usuario')
+        //);
     }
 
     public function edit($id)
     {
-        $u = U::Find($id);
-        $g = G::all();
-        $s = S::all();
-        $t = T::all();
-        $v = V::all();
-        return view('principal.editar_cliente',['usuarios'=>$u,'grupos'=>$g,'servicios'=>$s,'tpago'=>$t,'veredas'=>$v,]);
+        $usuarios = U::Find($id);
+        $grupos = G::all();
+        $servicios = S::all();
+        $tpago = T::all();
+        $veredas = V::all();
+        return view('principal.editar_cliente',compact('usuarios','grupos','servicios','tpago','veredas'));
     }
 
     public function update(Request $request, $id)

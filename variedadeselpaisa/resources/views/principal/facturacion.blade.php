@@ -8,19 +8,22 @@
             <h4 class="header-title m-t-0 m-b-30">Factura Mensual</h4>
 
             <div class="row">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" method="post" action="{{Route('facturacion.store')}}">
+                    @csrf
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="col-md-2 control-label">Cliente</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-client" name="nombre" class="form-control" value="{{$usuario->nombre}}" disabled>
-                                <input type="text" id="name-client" name="usuario_id" class="form-control" value="{{$usuario->id}}" disabled>
+                                <input type="text" id="name-client" name="nombre" class="form-control" value="{{$usuario[0]->nombre}}" disabled>
+                                <input type="hidden" id="name-client" name="usuarioId" class="form-control" value="{{$usuario[0]->id}}" >
+
+                                <input type="hidden" id="name-client" name="tfra_id" class="form-control" value="1" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Valor</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-price" name="date-price" class="form-control" value="{{$usuario->servicios->valor}}">
+                                <input type="number" id="date-price" name="valor" class="form-control" value="{{$usuario[0]->servicios->valor}}">
 
                             </div>
                         </div>
@@ -30,15 +33,15 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Servicio</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-service" name="date-service" class="form-control" value="{{$usuario->servicios->nombre}}">
-                                <input type="text" id="date-price" name="servicio_id" class="form-control" value="{{$usuario->servicios->id}}">
+                                <input type="text" id="date-service" name="date-service" class="form-control" value="{{$usuario[0]->servicios->nombre}}">
+                                <input type="hidden" id="date-price" name="servicio_id" class="form-control" value="{{$usuario[0]->servicios->id}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Fecha Factura</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" value="<?php echo date('Y-m-d') ?>" id="datepicker-autoclose" disabled>
+                                    <input type="text" class="form-control" name="fecha" placeholder="dd/mm/yyyy" value="<?php echo date('Y-m-d') ?>" id="datepicker-autoclose" disabled>
                                     <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                 </div>
                             </div>
@@ -78,7 +81,7 @@
                         @foreach($factura as $key)
                             <tr class="gradeX">
                                 <td>{{$key->id}}</td>
-                                <td></td>
+                                <td>{{$key->usuario->servicios->nombre}}</td>
                                 <td>{{$key->valor}}</td>
                                 <td>{{$key->created_at}}</td>
                                 <td class="actions">

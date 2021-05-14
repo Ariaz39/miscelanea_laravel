@@ -18,10 +18,24 @@ class FacturaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $id)
     {
-        $usuario = U::FindOrFail(1);
-        $factura = DB::table('factura')->where('usuario_id', 1)->get();
+        $usuario = U::FindOrFail($id);
+        $factura = F::where(['usuario_id' => $id->usuario,'tfra_id' => 1])->get();
+        //dd($usuario);
+        //$usuario = DB::table('usuario')
+        //    ->join('factura', 'usuario.id', '=', 'factura.usuario_id')
+        //    ->join('servicios', 'servicios.id', '=', 'usuario.servicios_id')
+        //    ->where('usuario.id', 1)
+        //    ->select(
+        //        'usuario.nombre as nombre',
+        //        'usuario.id as usuarioId',
+        //        'factura.*',
+        //        'servicios.id as servicioId',
+        //        'servicios.nombre as nombreServicio',
+        //        'servicios.valor as valor'
+        //    )->get()->toArray();
+        //dd($usuario);
 
         return view('principal.facturacion', compact('usuario','factura'));
     }
@@ -45,13 +59,16 @@ class FacturaController extends Controller
     public function store(Request $request)
     {
         $factura = new F;
-        $factura->usuario_id = $request->usuario_id;
+        $factura->usuario_id = $request->usuarioId;
         $factura->tfra_id = $request->tfra_id;
+        $factura->valor = $request->valor;
         $factura->concepto = $request->concepto;
 
         $factura-> save();
 
         dd($factura);
+
+        return redirect()->route('facturacion.index');
     }
 
     /**
