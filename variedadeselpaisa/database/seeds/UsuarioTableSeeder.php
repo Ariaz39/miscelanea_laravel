@@ -12,7 +12,7 @@ class UsuarioTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Usuario::class, 20)->create();
+        factory(App\Models\Usuario::class, 5)->create();
         //DB::table('usuario')->insert([
         //    ['nombre'=>'Admin',
         //      'celular'=>'3104561230',

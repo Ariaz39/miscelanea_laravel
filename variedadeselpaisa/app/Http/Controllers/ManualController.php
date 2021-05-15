@@ -11,7 +11,7 @@ use Barryvdh\DomPDF\Facade AS PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class FacturaController extends Controller
+class ManualController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +20,11 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $usuario = U::FindOrFail(2);
-        $factura = F::where(['usuario_id' => $usuario->id,'tfra_id' => 1])->get();
-        $factura2 = F::where(['usuario_id' => $usuario->id,'tfra_id' => 2])->get();
+        $usuario = U::All();
+        $servicios = U::All();
 
         //dd($usuario);
-        return view('principal.facturacion', compact('usuario','factura','factura2'));
+        return view('principal.factura_manual', compact('usuario','servicios'));
     }
 
     /**
@@ -40,6 +39,7 @@ class FacturaController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request);
         if($request->concepto == null){
             $tfra_id = 1;
         }else{
@@ -49,7 +49,7 @@ class FacturaController extends Controller
         $factura = new F;
         $factura->usuario_id = $request->usuarioId;
         $factura->tfra_id = $tfra_id;
-        $factura->concepto = $request->concepto;
+        $factura->concepto = $request->servicio.' '.$request->concepto;
         $factura->estado = $request->estado;
         $factura->valor = $request->valor;
 
@@ -73,10 +73,7 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $factura = F::FindOrFail($id);
-
-        //dd($factura);
-        return view('principal.editar_facturacion',compact('factura'));
+        //
     }
 
     /**
@@ -88,23 +85,7 @@ class FacturaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->concepto == null){
-            $tfra_id = 1;
-        }else{
-            $tfra_id = 2;
-        };
-        //dd($request);
-        $factura = new F;
-        $factura->usuario_id = $request->usuarioId;
-        $factura->tfra_id = $tfra_id;
-        $factura->concepto = $request->concepto;
-        $factura->estado = $request->estado;
-        $factura->valor = $request->valor;
-
-        //dd($factura);
-        $factura-> update();
-
-        return redirect()->route('facturacion.index');
+        //
     }
 
     /**

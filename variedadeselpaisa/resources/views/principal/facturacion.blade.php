@@ -53,14 +53,14 @@
 
                     </div>
 
-                    <div class="col-lg-12 col-md-12">
+                    <!-- <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="date-phone">Concepto</label>
                             <div class="col-md-11">
                                 <textarea class="form-control" rows="1" spellcheck="false" data-gramm="false" name="concepto"></textarea>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-lg-12 text-center m-t-20">
                         <button  type="submit" onclick="alert('¡Se ha creado la Factura correctamente...!')" class="btn btn-default waves-effect w-md m-b-5">FACTURAR</button>
@@ -144,7 +144,7 @@
                                 <td>{{$key->concepto}}</td>
                                 <td>{{$key->created_at}}</td>
                                 <td class="actions">
-                                    <a href="{{route('facturacion.edit',$usuario->id)}}" target="_blank"><i class="fa fa-eye"></i></a>
+                                    <a href="#" target="_blank"><i class="fa fa-eye"></i></a>
                                     <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
                                 </td>
                             </tr>

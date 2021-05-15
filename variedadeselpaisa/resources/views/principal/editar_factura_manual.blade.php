@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('pestana','Factura Manual')
+@section('pestana','Editar Factura Manual')
 @section('content')
 <div class="row">
     <div class="col-sm-12">
         <div class="card-box">
 
-            <h4 class="header-title m-t-0 m-b-30">Factura Manual</h4>
+            <h4 class="header-title m-t-0 m-b-30">Editar Factura Manual</h4>
 
             <div class="row">
                 <form class="form-horizontal" role="form" action="" method="post">
