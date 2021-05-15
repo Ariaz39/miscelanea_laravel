@@ -99,7 +99,7 @@
                                 <td>{{$key->created_at}}</td>
                                 <td class="actions">
                                     <a href="{{route('facturacion.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
-                                    <a class="btn-success btn-sm" href="#">Cancelada</a>
+                                    <a class="btn-success btn-sm" href="{{route('factura.mostrarFactura',$key->id)}}">Mostrar</a>
                                     <a class="btn-warning btn-sm" href="#">Pendiente</a>
                                 </td>
                             </tr>
@@ -146,7 +146,7 @@
                                 <td>{{$key->created_at}}</td>
                                 <td class="actions">
                                     <a href="{{route('factura_manual.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
-                                    <a class="btn-success btn-sm" href="#">Cancelada</a>
+                                    <a class="btn-success btn-sm" href="{{route('factura.mostrarFactura',$key->id)}}">Mostrar</a>
                                     <a class="btn-warning btn-sm" href="#">Pendiente</a>
                                 </td>
                             </tr>

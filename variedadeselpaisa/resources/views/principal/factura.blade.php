@@ -6,7 +6,8 @@
 	<link rel="stylesheet" href="{{asset('css/print.css')}}"  media="print">
 	<link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">
 
-    <style >
+
+    <!-- <style >
         body:after {
             content: "CANCELADA";
             font-size: 8em;
@@ -22,7 +23,7 @@
             user-select: none;
             text-align: center;
         }
-    </style>
+    </style> -->
 
     <div class="row">
         <div class="col-sm-12">
@@ -37,7 +38,7 @@
                             <div class="cons-factu" style="background-color: rgba(168, 168, 168, 0.7); display: table; text-align: center; height: 72px; border-radius: 9px; width: 100%;">
                                 <p style="background: #188ae2; color: #fff;">NÚMERO DE VENTA</p>
 
-                                <span>No 	11489</span>
+                                <span>No 	{{$factura->id}}</span>
                             </div>
                         </div>
                     </div>
@@ -47,19 +48,19 @@
                     <div class="colIzq">
                         <div class="nombre datousua">
                             <p>Señor (es): </p>
-                            <p>Pepito Perez </p>
+                            <p>{{$factura->usuario->nombre}}</p>
                         </div>
                         <div class="direccion datousua">
                             <p>Dirección: </p>
-                            <p>Vereda La Flor </p>
+                            <p>{{$factura->usuario->veredas->nombre}}</p>
                         </div>
                         <div class="ciudad datousua">
                             <p>Ciudad: </p>
-                            <p>Ibagué </p>
+                            <p>{{$factura->usuario->veredas->ciudad}}</p>
                         </div>
                         <div class="tel datousua">
                             <p>Tels.: </p>
-                            <p clas="ajustartel">3212160613</p>
+                            <p clas="ajustartel">{{$factura->usuario->celular}}</p>
                         </div>
                     </div>
 
@@ -70,7 +71,7 @@
                                     Fecha de <br>Emisión:
                                 </div>
                                 <div class="div fecha">
-                                    2021-04-29					</div>
+                                    {{$factura->created_at}}</div>
                             </div>
                         </div>
                         <div class="info" style="border-bottom: none;">
@@ -79,7 +80,7 @@
                                     Fecha de <br>Vencimiento:
                                 </div>
                                 <div class="div fecha">
-                                    2021-04-30					</div>
+                                    2021-04-30  <span class="bg-warning">Quemada</span>					</div>
                             </div>
                         </div>
                     </div>
@@ -106,13 +107,13 @@
                             <p style="padding-top: 30px;">1</p>
                         </div>
                         <div class="col col2">
-                            <p style="padding-top: 30px;">Valor correspondiente a Mensualidad de Servicio <b>Internet 4 Megas</b> comprendido entre las fechas 08/04/2021 hasta 08/05/2021</p>
+                            <p style="padding-top: 30px;">Valor correspondiente a Mensualidad de Servicio <b>{{$factura->usuario->servicios->nombre}}</b> <b>{{$factura->concepto}}</b> comprendido entre las fechas <span class="bg-warning">08/04/2021 hasta 08/05/2021</span></p>
                         </div>
                         <div class="col col3">
-                            <p style="padding-top: 30px;">$45.000</p>
+                            <p style="padding-top: 30px;">{{$factura->valor}}</p>
                         </div>
                         <div class="col col4">
-                            <p style="padding-top: 30px;">$45.000</p>
+                            <p style="padding-top: 30px;">{{$factura->valor}}</p>
                         </div>
                     </div>
 
@@ -126,14 +127,14 @@
                             <div class="total-pagar">
                                 <p><strong>TOTAL </strong> </p>
                                 <div>
-                                    <span>$ 45.000</span>
+                                    <span>{{$factura->valor}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="aba" class="mt_5p">
-                    <a  class="volver" href="javascript:history.back()"> Exportar</a>
+                    <a  class="volver" href="javascript:history.back()"> Regresar</a>
 
                 </div>
             </div>

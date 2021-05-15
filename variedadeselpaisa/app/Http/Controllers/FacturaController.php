@@ -124,4 +124,10 @@ class FacturaController extends Controller
     {
         //
     }
+
+    public function mostrarFactura ($id)
+    {
+        $factura = F::FindOrFail($id);
+        return view('principal.factura', compact('factura'));
+    }
 }
