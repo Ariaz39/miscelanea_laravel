@@ -98,8 +98,9 @@
                                 <td>{{$key->valor}}</td>
                                 <td>{{$key->created_at}}</td>
                                 <td class="actions">
-                                    <a href="{{route('facturacion.edit',$usuario->id)}}" target="_blank"><i class="fa fa-eye"></i></a>
-                                    <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
+                                    <a href="{{route('facturacion.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn-success btn-sm" href="#">Cancelada</a>
+                                    <a class="btn-warning btn-sm" href="#">Pendiente</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -144,8 +145,9 @@
                                 <td>{{$key->concepto}}</td>
                                 <td>{{$key->created_at}}</td>
                                 <td class="actions">
-                                    <a href="#" target="_blank"><i class="fa fa-eye"></i></a>
-                                    <a href="#" title="Cancelada?"><i class="fa fa-usd"></i></a>
+                                    <a href="{{route('facturacion.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn-success btn-sm" href="#">Cancelada</a>
+                                    <a class="btn-warning btn-sm" href="#">Pendiente</a>
                                 </td>
                             </tr>
                         @endforeach

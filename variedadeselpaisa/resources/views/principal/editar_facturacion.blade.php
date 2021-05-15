@@ -35,6 +35,9 @@
                             <div class="col-md-10">
                                 <input type="text" id="date-service" name="date-service" class="form-control" value="{{$factura->usuario->servicios->nombre}}" readonly>
                             </div>
+                            <div class="col-md-10">
+                                <input type="hidden" id="date-service" name="estado" class="form-control" value="{{$factura->estado}}">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Fecha Factura</label>
