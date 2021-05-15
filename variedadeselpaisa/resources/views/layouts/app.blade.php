@@ -59,9 +59,9 @@
                                     <i class="zmdi zmdi-menu"></i>
                                 </button>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <h4 class="page-title">@yield('pestana')</h4>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>

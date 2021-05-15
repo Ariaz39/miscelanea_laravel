@@ -73,7 +73,10 @@ class ManualController extends Controller
      */
     public function edit($id)
     {
-        //
+        $factura = F::FindOrFail($id);
+
+        //dd($factura);
+        return view('principal.editar_factura_manual',compact('factura'));
     }
 
     /**
@@ -85,7 +88,24 @@ class ManualController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->concepto == null){
+            $tfra_id = 1;
+        }else{
+            $tfra_id = 2;
+        };
+        //dd($request);
+        $factura = F::FindOrFail($id);
+        $factura->usuario_id = $request->usuarioId;
+        $factura->tfra_id = $tfra_id;
+        $factura->concepto = $request->concepto;
+        $factura->estado = $request->estado;
+        $factura->valor = $request->valor;
+
+        //dd($factura);
+        $factura-> update();
+
+        return redirect()->route('clientes.index');
+
     }
 
     /**
