@@ -59,9 +59,9 @@
                                     <i class="zmdi zmdi-menu"></i>
                                 </button>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <h4 class="page-title">@yield('pestana')</h4>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -88,13 +88,15 @@
                                 <a href="{{url('clientes')}}" class="waves-effect"><i class="zmdi zmdi-account-add"></i> <span> Clientes </span> </a>
                             </li>
 
-                            <li>
-                                <a href="{{url('/servicios')}}" class="waves-effect"><i class="zmdi zmdi-share"></i> <span> Servicios </span> </a>
-                            </li>
 
                             <li>
                                 <a href="{{url('/factura_manual')}}" class="waves-effect"><i class="zmdi zmdi-dot-circle"></i> <span> Factura Manual </span> </a>
                             </li>
+
+                            <li>
+                                <a href="{{url('/servicios')}}" class="waves-effect"><i class="zmdi zmdi-share"></i> <span> Servicios </span> </a>
+                            </li>
+
 
                             <li>
                                 <a href="{{url('/grupos')}}" class="waves-effect"><i class="zmdi zmdi-accounts"></i> <span> Grupos </span> </a>
@@ -322,7 +324,7 @@
         // Date Picker
         jQuery('#datepicker').datepicker();
         jQuery('#datepicker-autoclose').datepicker({
-        format: "dd/mm/yyyy",
+        format: "yyyy/mm/dd",
         autoclose: true,
         todayHighlight: true
         });
@@ -345,7 +347,7 @@
         });
         $('.input-daterange-timepicker').daterangepicker({
         timePicker: true,
-        format: 'DD/MM/YYYY h:mm A',
+        format: 'YYYY/MM/DD h:mm A',
         timePickerIncrement: 30,
         timePicker12Hour: true,
         timePickerSeconds: false,

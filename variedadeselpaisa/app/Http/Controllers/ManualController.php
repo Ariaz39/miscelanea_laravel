@@ -10,9 +10,8 @@ use App\Models\Facturas AS F;
 use Barryvdh\DomPDF\Facade AS PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use phpDocumentor\Reflection\Types\Integer;
 
-class FacturaController extends Controller
+class ManualController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,12 +20,11 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $usuario = U::FindOrFail(2);
-        //dd($id);
-        $factura = F::where(['usuario_id' => $usuario->id,'tfra_id' => 1])->get();
-        $factura2 = F::where(['usuario_id' => $usuario->id,'tfra_id' => 2])->get();
+        $usuario = U::All();
+        $servicios = U::All();
 
-        return view('principal.facturacion', compact('usuario','factura','factura2'));
+        //dd($usuario);
+        return view('principal.factura_manual', compact('usuario','servicios'));
     }
 
     /**
@@ -41,6 +39,7 @@ class FacturaController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request);
         if($request->concepto == null){
             $tfra_id = 1;
         }else{
@@ -50,26 +49,20 @@ class FacturaController extends Controller
         $factura = new F;
         $factura->usuario_id = $request->usuarioId;
         $factura->tfra_id = $tfra_id;
-        $factura->concepto = $request->concepto;
+        $factura->concepto = $request->servicio.' '.$request->concepto;
         $factura->estado = $request->estado;
         $factura->valor = $request->valor;
 
         $factura-> save();
         //dd($factura);
 
-        //Revisar esta redirección que se quede en la misma vista luego de guardar
-        return redirect()->route('clientes.index');
+        return redirect()->route('facturacion.index');
     }
 
 
     public function show($id)
     {
-        $usuario = U::FindOrFail($id);
-        //dd($id);
-        $factura = F::where(['usuario_id' => $id,'tfra_id' => 1])->get();
-        $factura2 = F::where(['usuario_id' => $id,'tfra_id' => 2])->get();
-
-        return view('principal.facturacion', compact('usuario','factura','factura2'));
+        //
     }
 
     /**
@@ -83,7 +76,7 @@ class FacturaController extends Controller
         $factura = F::FindOrFail($id);
 
         //dd($factura);
-        return view('principal.editar_facturacion',compact('factura'));
+        return view('principal.editar_factura_manual',compact('factura'));
     }
 
     /**
@@ -112,6 +105,7 @@ class FacturaController extends Controller
         $factura-> update();
 
         return redirect()->route('clientes.index');
+
     }
 
     /**
@@ -123,11 +117,5 @@ class FacturaController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function mostrarFactura ($id)
-    {
-        $factura = F::FindOrFail($id);
-        return view('principal.factura', compact('factura'));
     }
 }

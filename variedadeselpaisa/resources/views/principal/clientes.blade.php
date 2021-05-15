@@ -14,13 +14,13 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Nombre</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-client" name="nombre" class="form-control" placeholder="Escribir Nombre y Apellido">
+                                <input type="text" id="name-client" name="nombre" class="form-control" placeholder="Escribir Nombre y Apellido" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Grupo</label>
                             <div class="col-md-10">
-                                <select name="grupos_id" class="form-control">
+                                <select name="grupos_id" class="form-control" required>
                                     <option value=""></option>
                                     @foreach($grupos as $key)
                                         <option value="{{$key->id}}">{{$key->nombre}}</option>
@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Servicio</label>
                             <div class="col-md-10">
-                                <select name="servicios_id" class="form-control">
+                                <select name="servicios_id" class="form-control" required>
                                     <option value=""></option>
                                     @foreach($servicios as $key)
                                         <option value="{{$key->id}}">{{$key->nombre}} - {{$key->valor}}</option>
@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">IP Asignada</label>
                             <div class="col-md-10">
-                                <input type="text" id="ip" name="ip" class="form-control" placeholder="*******">
+                                <input type="text" id="ip" name="ip" class="form-control" placeholder="*******" required>
                             </div>
                         </div>
                     </div>
@@ -50,13 +50,13 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Celular</label>
                             <div class="col-md-10">
-                                <input type="number" id="date-phone" name="celular" class="form-control" placeholder="Numero sin espacios">
+                                <input type="number" id="date-phone" name="celular" class="form-control" placeholder="Numero sin espacios" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="example-email">Dirección</label>
                             <div class="col-md-10">
-                                <select name="direccion" class="form-control">
+                                <select name="direccion" class="form-control" required>
                                     <option value=""></option>
                                     @foreach($veredas as $key)
                                         <option value="{{$key->id}}">{{$key->nombre}}</option>
@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Tipo Pago</label>
                             <div class="col-md-10">
-                                 <select name="tpago_id" class="form-control">
+                                 <select name="tpago_id" class="form-control" required>
                                     <option value=""></option>
                                     @foreach($tpago as $key)
                                         <option value="{{$key->id}}">{{$key->nombre}}</option>
@@ -80,7 +80,7 @@
                             <label class="col-sm-2 control-label">Inicio Servicio</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" name="f_inicio" class="form-control" placeholder="{{date('Y/m/d')}}" autocomplete="off" id="datepicker-autoclose">
+                                    <input type="date" name="f_inicio" class="form-control" placeholder="{{date('Y/m/d')}}" autocomplete="off" id="datepicker-autoclose">
                                     <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($usuarios as $key)
+                        @foreach($usuario as $key)
                         <tr class="gradeX">
                             <td>{{$key->nombre}}</td>
                             <td>{{$key->celular}}</td>
@@ -132,13 +132,13 @@
                             <td>{{$key->ip}}</td>
                             <td>{{$key->f_inicio}}</td>
                             <td class="actions">
-                                <a href="{{Route('clientes.show',$key->id)}}"><i class="fa fa-eye"></i></a>
-                                <a href="{{Route('clientes.edit',$key->id)}}"><i class="fa fa-pencil"></i></a>
-                                <form class="d-inline pointer" action="{{Route('clientes.destroy',$key->id)}}" method="POST" accept-charset="utf-8">
+                                <a href="{{route('facturacion.show',$key->id)}}"><i class="fa fa-eye"></i>&nbsp;</a>
+                                <a href="{{Route('clientes.edit',$key->id)}}"><i class="fa fa-pencil"></i>&nbsp;</a>
+                                <!--<form class="d-inline pointer" action="{{Route('clientes.destroy',$key->id)}}" method="POST" accept-charset="utf-8">
                                     @csrf
                                     @method('DELETE')
                                     <button style="background: none" type="submit" onclick="return confirm('¿Seguro deseas borrar este registro?');"><i class="fa fa-trash-o"></i></button>
-                                </form>
+                                </form>-->
                             </td>
                         </tr>
                         @endforeach

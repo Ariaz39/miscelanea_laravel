@@ -1,26 +1,22 @@
 @extends('layouts.app')
-@section('pestana','Factura Manual')
+@section('pestana','Editar Factura Manual')
 @section('content')
 <div class="row">
     <div class="col-sm-12">
         <div class="card-box">
 
-            <h4 class="header-title m-t-0 m-b-30">Factura Manual</h4>
+            <h4 class="header-title m-t-0 m-b-30">Editar Factura Manual</h4>
 
             <div class="row">
-                <form class="form-horizontal" role="form" action="" method="post">
+                <form class="form-horizontal" role="form" action="{{route('factura_manual.update',$factura->id)}}" method="post">
                     @csrf
+                    @method('PUT')
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="col-md-2 control-label">Cliente</label>
                             <div class="col-md-10">
-                                <select class="form-control" name="usuarioId" id="name-client">
-                                    <option></option>
-                                    @foreach($usuario as $key)
-                                        <option value="{{$key->id}}">{{$key->nombre}}</option>
-                                    @endforeach
-                                </select>
-
+                                <input type="text" id="name-client" name="nombre" class="form-control" value="{{$factura->usuario->nombre}}" disabled>
+                                <input type="hidden" id="name-client" name="usuarioId" class="form-control" value="{{$factura->usuario->id}}">
                                 <input type="hidden" id="name-client" name="tfra_id" class="form-control" value="2">
                             </div>
 
@@ -29,7 +25,7 @@
                         <div class="form-group col-md-10">
                             <label class="col-md-2 control-label">Valor</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-price" name="valor" class="form-control" value="">
+                                <input type="text" id="date-price" name="valor" class="form-control" value="{{$factura->valor}}">
 
                             </div>
                         </div>
@@ -44,7 +40,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Servicio</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-service" name=servicio" class="form-control" value="Servicio Adicional">
+                                <input type="text" id="date-service" name=servicio" class="form-control" value="{{$factura->usuario->servicios->nombre}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -63,7 +59,7 @@
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="date-phone">Concepto</label>
                             <div class="col-md-11">
-                                <textarea class="form-control" rows="1" spellcheck="false" data-gramm="false" name="concepto"></textarea>
+                                <textarea class="form-control" rows="1" spellcheck="false" data-gramm="false" name="concepto">{{$factura->concepto}}</textarea>
                             </div>
                         </div>
                     </div>

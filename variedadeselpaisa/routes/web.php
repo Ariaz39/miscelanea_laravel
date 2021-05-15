@@ -23,8 +23,10 @@ Route::resource('/servicios','ServiciosController');
 Route::resource('/grupos', 'GruposController');
 Route::resource('/veredas', 'VeredasController');
 Route::resource('/facturacion', 'FacturaController');
+Route::resource('/factura_manual', 'ManualController');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::get('/users-pdf', 'UsuarioController@exportPdf')->name('usuarios.pdf');
-Route::get('/factura_manual', 'FacturaController@factura_manual');
+//Route::get('/mostrarFactura', 'FacturaController@mostrarFactura')->name('factura.mostrarFactura');
+Route::get('/mostrarFactura/{id}/mostrar', 'FacturaController@mostrarFactura')->name('factura.mostrarFactura');

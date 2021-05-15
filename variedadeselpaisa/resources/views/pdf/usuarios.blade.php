@@ -16,9 +16,11 @@
     }
 </style>
 <body>
+<h1>Listado de usuarios Variedades el Paisa</h1>
 <table class="border">
     <thead>
         <tr>
+            <th class="border">Id</th>
             <th class="border">Nombre Apellido</th>
             <th class="border">Celular</th>
             <th class="border">Grupo</th>
@@ -30,8 +32,9 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($usuarios as $key)
+        @foreach($usuario as $key)
             <tr class="border">
+                <td class="border">{{$key->id}}</td>
                 <td class="border">{{$key->nombre}}</td>
                 <td class="border">{{$key->celular}}</td>
                 <td class="border">{{$key->grupos->nombre}}</td>
@@ -39,7 +42,7 @@
                 <td class="border">{{$key->servicios->nombre}}</td>
                 <td class="border">{{$key->tpago->nombre}}</td>
                 <td class="border">{{$key->ip}}</td>
-                <td class="border"">{{$key->f_inicio}}</td>
+                <td class="border">{{$key->f_inicio}}</td>
             </tr>
         @endforeach
 

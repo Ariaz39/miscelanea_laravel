@@ -8,7 +8,7 @@
             <h4 class="header-title m-t-0 m-b-30">Editar Cliente</h4>
 
             <div class="row">
-                <form class="form-horizontal col-md-12" role="form" method="post" action="{{Route('clientes.update',$usuarios->id)}}">
+                <form class="form-horizontal col-md-12" role="form" method="post" action="{{Route('clientes.update',$usuario->id)}}">
 
                     @csrf
                     @method('PUT')
@@ -16,7 +16,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Nombre</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-client" name="nombre" class="form-control" placeholder="Escribir Nombre y Apellido" value="{{$usuarios->nombre}}">
+                                <input type="text" id="name-client" name="nombre" class="form-control" placeholder="Escribir Nombre y Apellido" value="{{$usuario->nombre}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -24,7 +24,7 @@
                             <div class="col-md-10">
                                 <select name="grupos_id" class="form-control">
                                     @foreach($grupos as $key)
-                                        @if($key->id == $usuarios->grupos_id)
+                                        @if($key->id == $usuario->grupos_id)
                                             <option selected value="{{$key->id}}">{{$key->nombre}}</option>
                                         @else
                                             <option value="{{$key->id}}">{{$key->nombre}}</option>
@@ -39,7 +39,7 @@
                                 <select name="servicios_id" class="form-control">
                                     <option value=""></option>
                                     @foreach($servicios as $key)
-                                        @if($key->id == $usuarios->servicios_id)
+                                        @if($key->id == $usuario->servicios_id)
                                             <option selected value="{{$key->id}}">{{$key->nombre}}</option>
                                         @else
                                             <option value="{{$key->id}}">{{$key->nombre}}</option>
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">IP Asignada</label>
                             <div class="col-md-10">
-                                <input type="text" id="ip" name="ip" class="form-control" value="{{$usuarios->ip}}">
+                                <input type="text" id="ip" name="ip" class="form-control" value="{{$usuario->ip}}">
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Celular</label>
                             <div class="col-md-10">
-                                <input type="number" id="date-phone" name="celular" class="form-control" value="{{$usuarios->celular}}">
+                                <input type="number" id="date-phone" name="celular" class="form-control" value="{{$usuario->celular}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -67,7 +67,7 @@
                             <div class="col-md-10">
                                 <select name="direccion" class="form-control">
                                     @foreach($veredas as $key)
-                                        @if($key->id == $usuarios->veredas_id)
+                                        @if($key->id == $usuario->veredas_id)
                                             <option selected value="{{$key->id}}">{{$key->nombre}}</option>
                                         @else
                                             <option value="{{$key->id}}">{{$key->nombre}}</option>
@@ -81,7 +81,7 @@
                             <div class="col-md-10">
                                  <select name="tpago_id" class="form-control">
                                     @foreach($tpago as $key)
-                                        @if($key->id == $usuarios->tpago_id)
+                                        @if($key->id == $usuario->tpago_id)
                                             <option selected value="{{$key->id}}">{{$key->nombre}}</option>
                                         @else
                                             <option value="{{$key->id}}">{{$key->nombre}}</option>
@@ -95,7 +95,7 @@
                             <label class="col-sm-2 control-label">Inicio Servicio</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="text" name="f_inicio" class="form-control" value="{{$usuarios->f_inicio}}" autocomplete="off" id="datepicker-autoclose">
+                                    <input type="text" name="f_inicio" class="form-control" value="{{$usuario->f_inicio}}" autocomplete="off" id="datepicker-autoclose">
                                     <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                 </div>
                             </div>

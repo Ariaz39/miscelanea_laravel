@@ -1,0 +1,135 @@
+[33mcommit a4388699c4db479251e9e1f80f423ad4bed22232[m[33m ([m[1;36mHEAD -> [m[1;32mmodulo_facturacion[m[33m)[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Fri May 14 00:50:06 2021 -0500
+
+    No almacena problemas con el array que está mandando.
+
+[33mcommit 3c1d206c621438e1bab0fb1a1d673e10f5fa3bbc[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Thu May 13 23:38:28 2021 -0500
+
+    Funciona la vista de las facturas y llama unicamente las requeridas en la consulta.
+
+[33mcommit 32b8929dbda49d2f1d5243b08e6533dce9af0bb0[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Thu May 13 20:51:19 2021 -0500
+
+    a
+
+[33mcommit ba4d41a5bd9dfdea5c293073baf00a3c43291c91[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Thu May 13 17:42:58 2021 -0500
+
+    .
+
+[33mcommit daa2b95a70b6f19c83c8f7e3be42823efd19c382[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Thu May 13 14:19:45 2021 -0500
+
+    .
+
+[33mcommit ee86cbecfe2a2a3332627139c44cef49b3e9f345[m
+Merge: f816c4a a96ef36
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Tue May 11 23:26:28 2021 -0500
+
+    Merge remote-tracking branch 'Main/modulo_facturacion' into modulo_facturacion
+    
+    # Conflicts:
+    #       variedadeselpaisa/app/Http/Controllers/UsuarioController.php
+
+[33mcommit f816c4a4469eb1e06a93e158bfc5c341527fd6c3[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Tue May 11 23:10:59 2021 -0500
+
+    Se realizó corrección del datatable y ya funcinoa correctamente en todas las vistas.
+
+[33mcommit a96ef3623a9122f3091f26ce5cc813c3219def61[m[33m ([m[1;31mMain/modulo_facturacion[m[33m)[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Tue May 11 23:10:59 2021 -0500
+
+    Se realizó corrección del datatable y ya funcinoa correctamente en todas las vistas.
+
+[33mcommit 11f54a854d8fe6d3f28494faf9ed700829abff04[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Tue May 11 00:11:57 2021 -0500
+
+    Se realizó la programación del boton de exportar en el modulo de usuarios.  Vamos a empezar a ver la funcionalidad de las alertas con SweetAlert
+
+[33mcommit f2d636254e9fd0cc24445464ecd25328581257f6[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Mon May 10 23:02:37 2021 -0500
+
+    Se programaron las veredas, se ordenaron los resultados en orden y se paginó.
+
+[33mcommit 6691f3bf903c1d431fdf941195b0c7a77412f6f5[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Mon May 10 01:05:58 2021 -0500
+
+    Se programaron los grupos completamente funcional.
+
+[33mcommit 95ed85978bc81f8b60d05e6c243d4f6aaa5cbce0[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Mon May 10 00:54:52 2021 -0500
+
+    Se programaron los grupos completamente funcional.
+
+[33mcommit 1260a036a665a93372f7cad26f8043279c237e9a[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sun May 9 22:50:31 2021 -0500
+
+    Se realizo el montaje de factories para los usuarios, asi mismo se creo el controlador para los servicios.
+
+[33mcommit b1e5cab140df1938a1c6f31dec9259e021796378[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sun May 9 19:34:06 2021 -0500
+
+    Toco el CRUD de usuarios está completo. se crea la nueva vista de facturación.
+
+[33mcommit db3c8df277f07a5a5abe55cf1e88490ce2d0c626[m[33m ([m[1;31mMain/master[m[33m)[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sun May 9 17:20:02 2021 -0500
+
+    Se montaron las vistas del inicio, crear y editar, completamente funcionales.
+
+[33mcommit 881f8459a4498734cfc298bd1e6db3a7d343d7e6[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sun May 9 02:55:10 2021 -0500
+
+    Se montó el store de usuarios completamente funcional faltan las validaciones.
+
+[33mcommit 0cc49367bd10d99f4e0000feeccafa04de972130[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sat May 8 23:16:54 2021 -0500
+
+    Se empiezan a montar las migraciónes con el controlador de usuarios
+
+[33mcommit 20f492fb2c835ece60024dbb1bd9301ed2a09dac[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sat May 8 22:46:11 2021 -0500
+
+    Se realizó el montaje de todo el sistema de logueo y recuperación de contraseñas de acceso, asi como el cambio de lenguaje a español.
+
+[33mcommit ac4ded43b4395ab25ac676012af6415eae971d2c[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sat May 8 18:45:55 2021 -0500
+
+    Se montaron todas las vistas, empezamos a programar.
+
+[33mcommit b0eecfd122026cd49cdf23d9ef2c8efe1a683de1[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sat May 8 18:44:54 2021 -0500
+
+    Se montaron todas las vistas, empezamos a programar.
+
+[33mcommit 9e965ee43a6f8a50a4f4c484db36d8bcc7c84c74[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sat May 8 17:39:19 2021 -0500
+
+    Montaje del app y vista clientes
+
+[33mcommit b99bfd69caeb7dbbdf3e7854fb65d72c3930598c[m
+Author: Alejo Ariaz <ariaz39@hotmail.com>
+Date:   Sat May 8 17:19:56 2021 -0500
+
+    Montaje del proyecto inicial
