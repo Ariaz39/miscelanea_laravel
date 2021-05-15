@@ -19,13 +19,18 @@
                                 <input type="hidden" id="name-client" name="tfra_id" class="form-control" value="1">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-10">
                             <label class="col-md-2 control-label">Valor</label>
                             <div class="col-md-10">
                                 <input type="text" id="date-price" name="valor" class="form-control" value="{{$usuario->servicios->valor}}">
 
                             </div>
                         </div>
+
+                        <!-- imputs Estado -->
+                            <label>Pendiente <input type="radio" name="estado" id="1" value="1" checked></label>
+                            <label>Cancelada <input type="radio" name="estado" id="2" value="2"></label>
+                        <!--  -->
 
                     </div>
                     <div class="col-lg-6">

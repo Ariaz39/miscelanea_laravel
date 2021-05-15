@@ -21,7 +21,7 @@ class Facturas extends Model
 
     protected $keyType = 'integer';
 
-    protected $fillable = ['id','usuario_id', 'tfra_id', 'concepto', 'valor', 'created_at', 'updated_at'];
+    protected $fillable = ['id','usuario_id', 'tfra_id', 'concepto', 'valor', 'estado', 'created_at', 'updated_at'];
 
     public function tfra()
     {
