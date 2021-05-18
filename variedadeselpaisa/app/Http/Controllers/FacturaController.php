@@ -11,6 +11,7 @@ use Barryvdh\DomPDF\Facade AS PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Integer;
+use Carbon\Carbon;
 
 class FacturaController extends Controller
 {
@@ -127,6 +128,7 @@ class FacturaController extends Controller
 
     public function mostrarFactura ($id)
     {
+
         $factura = F::FindOrFail($id);
         return view('principal.factura', compact('factura'));
     }

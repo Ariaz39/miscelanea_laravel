@@ -96,7 +96,7 @@
                                 <td>{{$key->id}}</td>
                                 <td>{{$key->usuario->servicios->nombre}}</td>
                                 <td>{{$key->valor}}</td>
-                                <td>{{$key->created_at}}</td>
+                                <td>{{$key->created_at->formatLocalized('%d/%m/%Y')}}</td>
                                 <td class="actions">
                                     <a href="{{route('facturacion.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
                                     <a class="btn-success btn-sm" href="{{route('factura.mostrarFactura',$key->id)}}">Mostrar</a>
@@ -143,7 +143,7 @@
                                 <td>{{$key->usuario->servicios->nombre}}</td>
                                 <td>{{$key->valor}}</td>
                                 <td>{{$key->concepto}}</td>
-                                <td>{{$key->created_at}}</td>
+                                <td>{{$key->created_at->formatLocalized('%d/%m/%Y')}}</td>
                                 <td class="actions">
                                     <a href="{{route('factura_manual.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
                                     <a class="btn-success btn-sm" href="{{route('factura.mostrarFactura',$key->id)}}">Mostrar</a>

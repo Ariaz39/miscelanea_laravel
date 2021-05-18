@@ -71,7 +71,7 @@
                                     Fecha de <br>Emisión:
                                 </div>
                                 <div class="div fecha">
-                                    {{$factura->created_at}}</div>
+                                    {{$factura->created_at->formatLocalized('%d/%m/%Y')}}</div>
                             </div>
                         </div>
                         <div class="info" style="border-bottom: none;">
@@ -80,7 +80,7 @@
                                     Fecha de <br>Vencimiento:
                                 </div>
                                 <div class="div fecha">
-                                    2021-04-30  <span class="bg-warning">Quemada</span>					</div>
+                                    {{$factura->created_at->addDays(5)->formatLocalized('%d/%m/%Y')}}</div>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                             <p style="padding-top: 30px;">1</p>
                         </div>
                         <div class="col col2">
-                            <p style="padding-top: 30px;">Valor correspondiente a Mensualidad de Servicio <b>{{$factura->usuario->servicios->nombre}}</b> <b>{{$factura->concepto}}</b> comprendido entre las fechas <span class="bg-warning">08/04/2021 hasta 08/05/2021</span></p>
+                            <p style="padding-top: 30px;">Valor correspondiente a Mensualidad de Servicio <b>{{$factura->usuario->servicios->nombre}}</b> <b>{{$factura->concepto}}</b> comprendido entre las fechas {{$factura->created_at->formatLocalized('%d/%m/%Y')}} hasta el {{$factura->created_at->addMonth()->formatLocalized('%d/%m/%Y')}}</p>
                         </div>
                         <div class="col col3">
                             <p style="padding-top: 30px;">{{$factura->valor}}</p>

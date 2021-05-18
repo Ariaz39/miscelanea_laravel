@@ -49,7 +49,7 @@ class ManualController extends Controller
         $factura = new F;
         $factura->usuario_id = $request->usuarioId;
         $factura->tfra_id = $tfra_id;
-        $factura->concepto = $request->servicio.' '.$request->concepto;
+        $factura->concepto = $request->concepto;
         $factura->estado = $request->estado;
         $factura->valor = $request->valor;
 
