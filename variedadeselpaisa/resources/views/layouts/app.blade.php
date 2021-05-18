@@ -88,6 +88,10 @@
                                 <a href="{{url('clientes')}}" class="waves-effect"><i class="zmdi zmdi-account-add"></i> <span> Clientes </span> </a>
                             </li>
 
+                            <li>
+                                <a href="{{route('facturacion.index')}}" class="waves-effect"><i class="zmdi zmdi-account-add"></i> <span> Facturas </span> </a>
+                            </li>
+
 
                             <li>
                                 <a href="{{url('/factura_manual')}}" class="waves-effect"><i class="zmdi zmdi-dot-circle"></i> <span> Factura Manual </span> </a>
@@ -471,6 +475,14 @@
         <script src="{{asset('pages/datatables.editable.init.js')}}"></script>
 
         <script type="text/javascript">
+
+            $(document).ready(function() {
+                $('#datatableAll').DataTable( {
+                    "order": [[ 0, "desc" ]]
+                } );
+            } );
+
+
         $(document).ready(function() {
             $('#datatable').dataTable();
             $('#datatable-keytable').DataTable( { keys: true } );

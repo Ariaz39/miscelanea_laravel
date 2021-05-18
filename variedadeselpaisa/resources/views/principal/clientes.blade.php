@@ -132,8 +132,8 @@
                             <td>{{$key->ip}}</td>
                             <td>{{$key->f_inicio}}</td>
                             <td class="actions">
-                                <a href="{{route('facturacion.show',$key->id)}}"><i class="fa fa-eye"></i>&nbsp;</a>
-                                <a href="{{Route('clientes.edit',$key->id)}}"><i class="fa fa-pencil"></i>&nbsp;</a>
+                                <a class="btn-sm btn-info" href="{{route('facturacion.show',$key->id)}}">Detalle</a>
+                                <a class="btn-sm btn-primary" href="{{Route('clientes.edit',$key->id)}}">Editar</a>
                                 <!--<form class="d-inline pointer" action="{{Route('clientes.destroy',$key->id)}}" method="POST" accept-charset="utf-8">
                                     @csrf
                                     @method('DELETE')

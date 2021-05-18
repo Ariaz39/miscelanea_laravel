@@ -98,9 +98,13 @@
                                 <td>{{$key->valor}}</td>
                                 <td>{{$key->created_at->formatLocalized('%d/%m/%Y')}}</td>
                                 <td class="actions">
-                                    <a href="{{route('facturacion.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn-sm btn-primary" href="{{route('facturacion.edit',$key->id)}}">Editar</a>
                                     <a class="btn-success btn-sm" href="{{route('factura.mostrarFactura',$key->id)}}">Mostrar</a>
-                                    <a class="btn-warning btn-sm" href="#">Pendiente</a>
+                                    @if($key->estado == 1)
+                                        <a class="btn-danger btn-sm" href="#">Pendiente</a>
+                                    @else
+                                        <a class="btn-warning btn-sm" href="#">Cancelado</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -125,7 +129,7 @@
 
 
                 <div class="">
-                    <table class="table table-striped" id="datatable-editable">
+                    <table class="table table-striped" id="datatable">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -145,9 +149,13 @@
                                 <td>{{$key->concepto}}</td>
                                 <td>{{$key->created_at->formatLocalized('%d/%m/%Y')}}</td>
                                 <td class="actions">
-                                    <a href="{{route('factura_manual.edit',$key->id)}}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn-sm btn-primary" href="{{route('factura_manual.edit',$key->id)}}">Editar</a>
                                     <a class="btn-success btn-sm" href="{{route('factura.mostrarFactura',$key->id)}}">Mostrar</a>
-                                    <a class="btn-warning btn-sm" href="#">Pendiente</a>
+                                    @if($key->estado == 1)
+                                        <a class="btn-danger btn-sm" href="{{route('factura.actualizaEstado',[$key->id, $key->estado, 1])}}">Pendiente</a>
+                                    @else
+                                        <a class="btn-warning btn-sm" href="{{route('factura.actualizaEstado',[$key->id, $key->estado, 1])}}">Cancelado</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -15,26 +15,16 @@ use Carbon\Carbon;
 
 class FacturaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $usuario = U::FindOrFail(2);
+        $factura = F::All();
         //dd($id);
-        $factura = F::where(['usuario_id' => $usuario->id,'tfra_id' => 1])->get();
-        $factura2 = F::where(['usuario_id' => $usuario->id,'tfra_id' => 2])->get();
 
-        return view('principal.facturacion', compact('usuario','factura','factura2'));
+
+        return view('principal.facturacionAll', compact('factura'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -59,7 +49,7 @@ class FacturaController extends Controller
         //dd($factura);
 
         //Revisar esta redirección que se quede en la misma vista luego de guardar
-        return redirect()->route('clientes.index');
+        return redirect()->route('facturacion.index');
     }
 
 
@@ -73,12 +63,6 @@ class FacturaController extends Controller
         return view('principal.facturacion', compact('usuario','factura','factura2'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $factura = F::FindOrFail($id);
@@ -87,13 +71,6 @@ class FacturaController extends Controller
         return view('principal.editar_facturacion',compact('factura'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         if($request->concepto == null){
@@ -115,12 +92,26 @@ class FacturaController extends Controller
         return redirect()->route('clientes.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function actualizaEstado($id, $estado, $vista = null){
+        //dd($mierda);
+        $factura = F::FindOrFail($id);
+
+        if ($estado == 1 ){
+            $factura->estado = 2;
+        }else{
+            $factura->estado = 1;
+        }
+
+        $factura->update();
+
+        if($vista == 1) {
+            return redirect()->route('facturacion.show', $factura->usuario_id);
+        }
+
+        return redirect()->route('facturacion.index');
+
+    }
+
     public function destroy($id)
     {
         //

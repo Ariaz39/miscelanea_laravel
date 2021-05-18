@@ -30,3 +30,4 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/users-pdf', 'UsuarioController@exportPdf')->name('usuarios.pdf');
 //Route::get('/mostrarFactura', 'FacturaController@mostrarFactura')->name('factura.mostrarFactura');
 Route::get('/mostrarFactura/{id}/mostrar', 'FacturaController@mostrarFactura')->name('factura.mostrarFactura');
+Route::get('/actualizaEstado/{id}/{estado}/{vista?}', 'FacturaController@actualizaEstado')->name('factura.actualizaEstado');
