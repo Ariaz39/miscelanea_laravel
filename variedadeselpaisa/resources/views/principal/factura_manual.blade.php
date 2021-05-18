@@ -8,7 +8,7 @@
             <h4 class="header-title m-t-0 m-b-30">Factura Manual</h4>
 
             <div class="row">
-                <form class="form-horizontal" role="form" action="" method="post">
+                <form class="form-horizontal" role="form" action="" method="post" action="{{route('factura_manual.store')}}">
                     @csrf
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Servicio</label>
                             <div class="col-md-10">
-                                <input type="text" id="date-service" name=servicio" class="form-control" value="Servicio Adicional">
+                                <input type="text" id="date-service" name="servicioManual" class="form-control" value="">
                             </div>
                         </div>
                         <div class="form-group">

@@ -52,6 +52,7 @@ class ManualController extends Controller
         $factura->concepto = $request->concepto;
         $factura->estado = $request->estado;
         $factura->valor = $request->valor;
+        $factura->servicioManual = $request->servicioManual;
 
         $factura-> save();
         //dd($factura);
@@ -97,6 +98,7 @@ class ManualController extends Controller
         $factura = F::FindOrFail($id);
         $factura->usuario_id = $request->usuarioId;
         $factura->tfra_id = $tfra_id;
+        $factura->servicioManual = $request->servicioManual;
         $factura->concepto = $request->concepto;
         $factura->estado = $request->estado;
         $factura->valor = $request->valor;

@@ -102,12 +102,14 @@
                         </div>
                     </div>
 
+                    @if($factura->tfra_id == 1)
+
                     <div class="div-fila" style="height: 230px">
                         <div class="col col1">
                             <p style="padding-top: 30px;">1</p>
                         </div>
                         <div class="col col2">
-                            <p style="padding-top: 30px;">Valor correspondiente a Mensualidad de Servicio <b>{{$factura->usuario->servicios->nombre}}</b> <b>{{$factura->concepto}}</b> comprendido entre las fechas {{$factura->created_at->formatLocalized('%d/%m/%Y')}} hasta el {{$factura->created_at->addMonth()->formatLocalized('%d/%m/%Y')}}</p>
+                            <p style="padding-top: 30px;">Valor correspondiente a Mensualidad de <b>{{$factura->usuario->servicios->nombre}}</b> comprendido entre las fechas {{$factura->created_at->formatLocalized('%d/%m/%Y')}} hasta el {{$factura->created_at->addMonth()->formatLocalized('%d/%m/%Y')}}</p>
                         </div>
                         <div class="col col3">
                             <p style="padding-top: 30px;">{{$factura->valor}}</p>
@@ -116,6 +118,23 @@
                             <p style="padding-top: 30px;">{{$factura->valor}}</p>
                         </div>
                     </div>
+                    @else
+                    <div class="div-fila" style="height: 230px">
+                        <div class="col col1">
+                            <p style="padding-top: 30px;">1</p>
+                        </div>
+                        <div class="col col2">
+                            <p style="padding-top: 30px;">Valor correspondiente a <b>{{$factura->servicioManual}}</b> por concepto de <b>{{$factura->concepto}}</b> en la fecha {{$factura->created_at->formatLocalized('%d/%m/%Y')}} </p>
+                        </div>
+                        <div class="col col3">
+                            <p style="padding-top: 30px;">{{$factura->valor}}</p>
+                        </div>
+                        <div class="col col4">
+                            <p style="padding-top: 30px;">{{$factura->valor}}</p>
+                        </div>
+                    </div>
+
+                    @endif
 
 
                 </div>

@@ -140,7 +140,7 @@
                         @foreach($factura2 as $key)
                             <tr class="gradeX">
                                 <td>{{$key->id}}</td>
-                                <td>{{$key->usuario->servicios->nombre}}</td>
+                                <td>{{$key->servicioManual}}</td>
                                 <td>{{$key->valor}}</td>
                                 <td>{{$key->concepto}}</td>
                                 <td>{{$key->created_at->formatLocalized('%d/%m/%Y')}}</td>
