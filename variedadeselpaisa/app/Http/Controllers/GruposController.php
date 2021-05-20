@@ -11,6 +11,13 @@ class GruposController extends Controller
     public function index()
     {
         $g = G::orderBy('nombre')->get();
+
+        if (session('success_message')){
+
+            alert()->html(session('success_message')," ",'success');
+
+        }
+
         return view('principal.grupos',['grupos'=>$g]);
     }
 
@@ -23,7 +30,7 @@ class GruposController extends Controller
 
         $g->save();
 
-        return redirect()->route('grupos.index');
+        return redirect()->route('grupos.index')->withSuccessMessage('Grupo creado correctamente');
     }
 
 
@@ -43,7 +50,7 @@ class GruposController extends Controller
 
         $g-> update();
 
-        return redirect()->route('grupos.index');
+        return redirect()->route('grupos.index')->withSuccessMessage('Grupo actualizado correctamente');
 
     }
 

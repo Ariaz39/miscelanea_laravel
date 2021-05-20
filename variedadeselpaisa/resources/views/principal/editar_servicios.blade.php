@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="col-lg-12 text-center m-t-20">
-                        <button  type="submit" onclick="alert('¡Se han actualizado los datos correctamente...!')" class="btn btn-default waves-effect w-md m-b-5">ACTUALIZAR</button>
+                        <button  type="submit" class="btn btn-default waves-effect w-md m-b-5">ACTUALIZAR</button>
                     </div>
 
                 </form>

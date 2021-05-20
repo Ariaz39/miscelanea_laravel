@@ -12,6 +12,12 @@ class ServiciosController extends Controller
     {
         $s = S::all();
         $s = S::orderBy('nombre')->get();
+
+        if (session('success_message')){
+
+            alert()->html(session('success_message')," ",'success');
+
+        }
         return view('principal.servicios',['servicios'=>$s]);
     }
 
@@ -28,7 +34,7 @@ class ServiciosController extends Controller
 
         $s-> save();
 
-        return redirect()->route('servicios.index');
+        return redirect()->route('servicios.index')->withSuccessMessage('Servicio creado correctamente.');
     }
 
     public function show($id)
@@ -50,7 +56,7 @@ class ServiciosController extends Controller
 
         $s->update();
 
-        return redirect()->route('servicios.index');
+        return redirect()->route('servicios.index')->withSuccessMessage('Servicio creado correctamente.');
     }
 
 }

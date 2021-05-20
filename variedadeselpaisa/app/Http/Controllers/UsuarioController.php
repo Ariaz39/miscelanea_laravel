@@ -10,8 +10,10 @@ use App\Models\Servicios AS S;
 use App\Models\Tpago AS T;
 use App\Models\Veredas AS V;
 use Barryvdh\DomPDF\Facade AS PDF;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+
 
 class UsuarioController extends Controller
 {
@@ -23,15 +25,19 @@ class UsuarioController extends Controller
         $servicios = S::all();
         $tpago = T::all();
         $veredas = V::all();
+
+        if (session('success_message')){
+
+            alert()->html(session('success_message')," ",'success');
+
+        }
+
         return view('principal.clientes',compact('usuario','grupos','servicios','tpago','veredas'));
     }
 
     public function store(Request $request)
     {
-        //$fecha = date('Y-m-d', strtotime($_REQUEST['f_inicio']));
-        //$c = Carbon::now()->format('Y-m-d');
 
-        //dd($request->f_inicio);
         $usuario = new U;
         $usuario->nombre = $request->nombre;
         $usuario->celular = $request->celular;
@@ -43,9 +49,8 @@ class UsuarioController extends Controller
         $usuario->ip = $request->ip;
         $usuario->f_inicio = $request->f_inicio;
 
-
         $usuario->save();
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->withSuccessMessage('Cliente agregado correctamente');
     }
 
     public function show($id)
@@ -82,7 +87,7 @@ class UsuarioController extends Controller
 
 
         $usuario->update();
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->withSuccessMessage('Cliente actualizado correctamente');
     }
 
     public function destroy($id)

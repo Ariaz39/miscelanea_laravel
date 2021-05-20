@@ -164,6 +164,7 @@
                 </section>
             </div>
         </div>
+        @include('sweetalert::alert')
 
         <script>
         var resizefunc = [];

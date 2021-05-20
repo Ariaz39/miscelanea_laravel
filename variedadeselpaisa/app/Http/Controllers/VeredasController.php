@@ -11,6 +11,12 @@ class VeredasController extends Controller
     {
         $v = V::orderBy('nombre')->get();
 
+        if (session('success_message')){
+
+            alert()->html(session('success_message')," ",'success');
+
+        }
+
         return view('principal.veredas',['veredas'=>$v]);
     }
 
@@ -22,7 +28,7 @@ class VeredasController extends Controller
 
         $v->save();
 
-        return redirect()->route('veredas.index');
+        return redirect()->route('veredas.index')->withSuccessMessage('Vereda agregada correctamente');
     }
 
     public function edit($id)
@@ -40,7 +46,7 @@ class VeredasController extends Controller
 
         $v->update();
 
-        return redirect()->route('veredas.index');
+        return redirect()->route('veredas.index')->withSuccessMessage('Vereda actualizada correctamente');
     }
 
 }

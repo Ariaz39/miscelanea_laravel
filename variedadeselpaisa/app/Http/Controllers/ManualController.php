@@ -23,6 +23,12 @@ class ManualController extends Controller
         $usuario = U::All();
         $servicios = U::All();
 
+        if (session('success_message')){
+
+            alert()->html(session('success_message')," ",'success');
+
+        }
+
         //dd($usuario);
         return view('principal.factura_manual', compact('usuario','servicios'));
     }
@@ -57,7 +63,7 @@ class ManualController extends Controller
         $factura-> save();
         //dd($factura);
 
-        return redirect()->route('facturacion.index');
+        return redirect()->route('facturacion.index')->withSuccessMessage('Factura manual creada correctamente.');
     }
 
 
@@ -106,7 +112,7 @@ class ManualController extends Controller
         //dd($factura);
         $factura-> update();
 
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->withSuccessMessage('Factura manual creada correctamente.');
 
     }
 

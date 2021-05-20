@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">Nombre</label>
                             <div class="col-md-10">
-                                <input type="text" id="name-client" name="nombre" class="form-control" placeholder="Escribir Nombre y Apellido" required>
+                                <input type="text" id="name-client" name="nombre" minlength="3" class="form-control" placeholder="Escribir Nombre y Apellido" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">IP Asignada</label>
                             <div class="col-md-10">
-                                <input type="text" id="ip" name="ip" class="form-control" placeholder="*******" required>
+                                <input type="number" id="ip" name="ip" maxlength="12" class="form-control" placeholder="*******" required>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="date-phone">Celular</label>
                             <div class="col-md-10">
-                                <input type="number" id="date-phone" name="celular" class="form-control" placeholder="Numero sin espacios" required>
+                                <input type="number" id="date-phone" name="celular"  class="form-control" placeholder="Numero sin espacios" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="col-lg-12 text-center m-t-20">
-                        <button  type="submit" onclick="alert('¡Se han guardado los datos correctamente...!')" class="btn btn-default waves-effect w-md m-b-5">GUARDAR</button>
+                        <button  type="submit" class="btn btn-default waves-effect w-md m-b-5">GUARDAR</button>
                     </div>
                 </form>
 

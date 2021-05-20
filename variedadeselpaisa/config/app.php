@@ -167,6 +167,8 @@ return [
          */
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -227,6 +229,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
 
 
     ],

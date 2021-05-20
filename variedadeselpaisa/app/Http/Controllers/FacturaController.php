@@ -21,6 +21,11 @@ class FacturaController extends Controller
         $factura = F::All();
         //dd($id);
 
+        if (session('success_message')){
+
+            alert()->html(session('success_message')," ",'success');
+
+        }
 
         return view('principal.facturacionAll', compact('factura'));
     }
@@ -49,7 +54,7 @@ class FacturaController extends Controller
         //dd($factura);
 
         //Revisar esta redirección que se quede en la misma vista luego de guardar
-        return redirect()->route('facturacion.index');
+        return redirect()->route('facturacion.index')->withSuccessMessage('Factura agregada correctamente');
     }
 
 
@@ -89,11 +94,10 @@ class FacturaController extends Controller
         //dd($factura);
         $factura-> update();
 
-        return redirect()->route('clientes.index');
+        return redirect()->route('facturacion.index')->withSuccessMessage('Factura actualizada correctamente');
     }
 
     public function actualizaEstado($id, $estado, $vista = null){
-        //dd($mierda);
         $factura = F::FindOrFail($id);
 
         if ($estado == 1 ){
@@ -110,11 +114,6 @@ class FacturaController extends Controller
 
         return redirect()->route('facturacion.index');
 
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 
     public function mostrarFactura ($id)

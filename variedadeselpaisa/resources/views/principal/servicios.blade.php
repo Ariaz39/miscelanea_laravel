@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="col-lg-12 text-center m-t-20">
-                        <button  type="submit" onclick="alert('¡Se han guardado los datos correctamente...!')" class="btn btn-default waves-effect w-md m-b-5">GUARDAR</button>
+                        <button  type="submit"  class="btn btn-default waves-effect w-md m-b-5">GUARDAR</button>
                     </div>
 
                 </form>
