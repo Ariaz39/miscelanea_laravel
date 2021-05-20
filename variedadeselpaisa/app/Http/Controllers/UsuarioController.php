@@ -17,6 +17,12 @@ use Carbon\Carbon;
 
 class UsuarioController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $usuario = U::All();

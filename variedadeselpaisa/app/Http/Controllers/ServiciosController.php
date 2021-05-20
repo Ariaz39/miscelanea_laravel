@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class ServiciosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $s = S::all();

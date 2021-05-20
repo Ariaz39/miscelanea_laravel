@@ -7,6 +7,11 @@ use App\Models\Veredas as V;
 
 class VeredasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $v = V::orderBy('nombre')->get();
